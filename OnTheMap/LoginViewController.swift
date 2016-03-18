@@ -27,7 +27,11 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTouch(sender: UIButton) {
         if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            print("empty")
+            
+            let ac = UIAlertController(title: "", message: "Email or Password empty", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            
         } else {
             UdacityClient.sharedInstance().getSessionID(userID: self.usernameTextField.text!, userPassword: self.passwordTextField.text!)
         }
