@@ -22,7 +22,9 @@ extension UdacityClient {
         UdacityClient.sharedInstance().taskForPOSTMethod(UdacityClient.Methods.Session, parameters: parameters, jsonBody: jsonBody) { (results, error) in
             
             if let error = error {
-                print(error)
+                dispatch_async(dispatch_get_main_queue(), {
+                    print(error)
+                    })
             } else {
                 if let results = results {
                     print(results)
