@@ -13,7 +13,7 @@ import Foundation
 
 extension UdacityClient {
     
-    func getSessionID(userID userID: String, userPassword: String) {
+    func getSessionID(userID userID: String, userPassword: String, completionHandlerForGetSessionID: (success: Bool, error: String?) -> Void) {
         
         let parameters = [String: AnyObject]()
         
@@ -22,12 +22,12 @@ extension UdacityClient {
         UdacityClient.sharedInstance().taskForPOSTMethod(UdacityClient.Methods.Session, parameters: parameters, jsonBody: jsonBody) { (results, error) in
             
             if let error = error {
-                dispatch_async(dispatch_get_main_queue(), {
-                    print(error)
-                    })
+                print(error)
+                completionHandlerForGetSessionID(success: false, error: "Login failed. Wrong user name or password")
             } else {
                 if let results = results {
                     print(results)
+                    completionHandlerForGetSessionID(success: true, error: nil)
                 }
             }
         }

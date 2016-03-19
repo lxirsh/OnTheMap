@@ -33,7 +33,24 @@ class LoginViewController: UIViewController {
             presentViewController(ac, animated: true, completion: nil)
             
         } else {
-            UdacityClient.sharedInstance().getSessionID(userID: self.usernameTextField.text!, userPassword: self.passwordTextField.text!)
+            UdacityClient.sharedInstance().getSessionID(userID: self.usernameTextField.text!, userPassword: self.passwordTextField.text!) { (success, error) in
+                dispatch_async(dispatch_get_main_queue(), {
+                    if success {
+                        print("success")
+                    } else {
+                        print("Login failed")
+                        let ac = UIAlertController(title: "Login failed", message: "Email or password incorrect", preferredStyle: .Alert)
+                        ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                        self.presentViewController(ac, animated: true, completion: nil)
+                        
+                    }
+                })
+//                if success {
+//                    print("success")
+//                } else {
+//                    print("nope")
+//                }
+            }
         }
     }
     
