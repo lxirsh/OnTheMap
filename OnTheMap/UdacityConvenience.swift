@@ -13,7 +13,7 @@ import Foundation
 
 extension UdacityClient {
     
-    func getSessionID(userID userID: String, userPassword: String, completionHandlerForGetSessionID: (success: Bool, error: String?) -> Void) {
+    func getSessionID(userID userID: String, userPassword: String, completionHandlerForGetSessionID: (success: Bool, errorString: String?) -> Void) {
         
         let parameters = [String: AnyObject]()
         
@@ -22,12 +22,16 @@ extension UdacityClient {
         UdacityClient.sharedInstance().taskForPOSTMethod(UdacityClient.Methods.Session, parameters: parameters, jsonBody: jsonBody) { (results, error) in
             
             if let error = error {
-                print(error)
-                completionHandlerForGetSessionID(success: false, error: "Login failed. Wrong user name or password")
+                print("\(error.localizedDescription)\n")
+                if error.localizedDescription == "Your request returned a status code other than 2xx!" {
+                    completionHandlerForGetSessionID(success: false, errorString: "Invalid Email or Password")
+                } else {
+                    completionHandlerForGetSessionID(success: false, errorString: "The internet connection appears to be offline.")
+                }
             } else {
                 if let results = results {
                     print(results)
-                    completionHandlerForGetSessionID(success: true, error: nil)
+                    completionHandlerForGetSessionID(success: true, errorString: nil)
                 }
             }
         }
