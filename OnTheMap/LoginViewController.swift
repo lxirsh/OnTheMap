@@ -40,6 +40,7 @@ class LoginViewController: UIViewController {
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
                     print("success")
+                    self.performSegueWithIdentifier("OnTheMap", sender: nil)
                 } else {
                     if let error = error {
                         print(error)

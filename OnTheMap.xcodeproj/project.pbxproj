@@ -15,6 +15,7 @@
 		B4814A1F1C98922800B8E978 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4814A1E1C98922800B8E978 /* UdacityConstants.swift */; };
 		B4814A211C98926800B8E978 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4814A201C98926800B8E978 /* UdacityClient.swift */; };
 		B4814A231C991B3D00B8E978 /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4814A221C991B3B00B8E978 /* UdacityConvenience.swift */; };
+		B4C917201CA1311C002CEEFF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C9171F1CA1311C002CEEFF /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B4814A1E1C98922800B8E978 /* UdacityConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
 		B4814A201C98926800B8E978 /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		B4814A221C991B3B00B8E978 /* UdacityConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
+		B4C9171F1CA1311C002CEEFF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4C917201CA1311C002CEEFF /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,7 @@
 		B48149FE1C9868E200B8E978 = {
 			isa = PBXGroup;
 			children = (
+				B4C9171F1CA1311C002CEEFF /* MapKit.framework */,
 				B4814A091C9868E200B8E978 /* OnTheMap */,
 				B4814A081C9868E200B8E978 /* Products */,
 			);
@@ -137,6 +141,11 @@
 				TargetAttributes = {
 					B4814A061C9868E200B8E978 = {
 						CreatedOnToolsVersion = 7.2.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -328,6 +337,7 @@
 				B4814A1B1C9868E200B8E978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
