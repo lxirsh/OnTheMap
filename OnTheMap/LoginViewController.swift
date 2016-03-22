@@ -26,33 +26,30 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonTouch(sender: UIButton) {
-        if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            
+        if !usernameTextField.text!.isEmpty && !passwordTextField.text!.isEmpty {
+            loginToUdacity()
+        } else {
             let ac = UIAlertController(title: "", message: "Email or Password empty", preferredStyle: .Alert)
             ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
             presentViewController(ac, animated: true, completion: nil)
-            
-        } else {
-            UdacityClient.sharedInstance().getSessionID(userID: self.usernameTextField.text!, userPassword: self.passwordTextField.text!) { (success, error) in
-                dispatch_async(dispatch_get_main_queue(), {
-                    if success {
-                        print("success")
-                    } else {
-                        if let error = error {
-                            print(error)
-                        }
-                        let ac = UIAlertController(title: "Login failed", message: error, preferredStyle: .Alert)
-                        ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
-                        self.presentViewController(ac, animated: true, completion: nil)
-                        
+        }
+    }
+    
+    func loginToUdacity() {
+        UdacityClient.sharedInstance().getSessionID(userID: self.usernameTextField.text!, userPassword: self.passwordTextField.text!) { (success, error) in
+            dispatch_async(dispatch_get_main_queue(), {
+                if success {
+                    print("success")
+                } else {
+                    if let error = error {
+                        print(error)
                     }
-                })
-//                if success {
-//                    print("success")
-//                } else {
-//                    print("nope")
-//                }
-            }
+                    let ac = UIAlertController(title: "Login failed", message: error, preferredStyle: .Alert)
+                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                    self.presentViewController(ac, animated: true, completion: nil)
+                    
+                }
+            })
         }
     }
     
