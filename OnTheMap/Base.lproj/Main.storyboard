@@ -115,7 +115,7 @@
         <!--Map-->
         <scene sceneID="KlI-wk-0Kj">
             <objects>
-                <viewController id="mO2-EK-xkl" sceneMemberID="viewController">
+                <viewController id="mO2-EK-xkl" customClass="MapViewViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cpa-AD-vam"/>
                         <viewControllerLayoutGuide type="bottom" id="MgR-KV-F43"/>
@@ -126,6 +126,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="L4E-qg-H3Y">
                                 <rect key="frame" x="20" y="28" width="555" height="515"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mO2-EK-xkl" id="ArX-gn-b2x"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,6 +140,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="Yj0-Qd-9do"/>
+                    <connections>
+                        <outlet property="mapView" destination="L4E-qg-H3Y" id="Vp4-2D-w1V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ton-MQ-kcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
