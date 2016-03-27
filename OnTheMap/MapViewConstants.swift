@@ -34,5 +34,10 @@ extension MapViewClient {
         
     }
     
+    // MARK: JSON Response Keys
+    struct JSONResponseKeys {
+        static let studentList = "results"
+    }
+    
     
 }

@@ -17,13 +17,15 @@ extension MapViewClient {
         
         let parameters = [String: AnyObject]()
         
-        taskForGETMethod(MapViewClient.Methods.StudentLocations, parameters: parameters) { (resuts, error) in
+        taskForGETMethod(MapViewClient.Methods.StudentLocations, parameters: parameters) { (results, error) in
             
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                if let resuts = resuts {
-                    print(resuts)
+                if let results = results[MapViewClient.JSONResponseKeys.studentList] as? [[String: AnyObject]] {
+                    print(results)
+                } else {
+                    completionHandlerForGetStudentLocations(success: false, errorString: "Could not parse data")
                 }
             }
         }
