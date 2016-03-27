@@ -23,7 +23,9 @@ extension MapViewClient {
                 print(error.localizedDescription)
             } else {
                 if let results = results[MapViewClient.JSONResponseKeys.studentList] as? [[String: AnyObject]] {
-                    print(results)
+//                    print(results)
+                    let students = StudentInformation.studentInformationFromResults(results)
+                    print(students)
                 } else {
                     completionHandlerForGetStudentLocations(success: false, errorString: "Could not parse data")
                 }

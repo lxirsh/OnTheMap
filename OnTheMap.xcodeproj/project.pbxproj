@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B46D25851CA6746A00EE1045 /* MapViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D25841CA6746900EE1045 /* MapViewConstants.swift */; };
+		B46D25871CA7E67C00EE1045 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D25861CA7E67C00EE1045 /* StudentInformation.swift */; };
 		B4814A0B1C9868E200B8E978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4814A0A1C9868E200B8E978 /* AppDelegate.swift */; };
 		B4814A0D1C9868E200B8E978 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4814A0C1C9868E200B8E978 /* LoginViewController.swift */; };
 		B4814A101C9868E200B8E978 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4814A0E1C9868E200B8E978 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		B46D25841CA6746900EE1045 /* MapViewConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewConstants.swift; sourceTree = "<group>"; };
+		B46D25861CA7E67C00EE1045 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		B4814A071C9868E200B8E978 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4814A0A1C9868E200B8E978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4814A0C1C9868E200B8E978 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				B4B608801CA4563200218D36 /* MapViewClient.swift */,
 				B4B608821CA4577B00218D36 /* MapViewConvenience.swift */,
 				B46D25841CA6746900EE1045 /* MapViewConstants.swift */,
+				B46D25861CA7E67C00EE1045 /* StudentInformation.swift */,
 			);
 			name = MapView;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				B4814A211C98926800B8E978 /* UdacityClient.swift in Sources */,
 				B4814A0D1C9868E200B8E978 /* LoginViewController.swift in Sources */,
 				B4814A0B1C9868E200B8E978 /* AppDelegate.swift in Sources */,
+				B46D25871CA7E67C00EE1045 /* StudentInformation.swift in Sources */,
 				B46D25851CA6746A00EE1045 /* MapViewConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
