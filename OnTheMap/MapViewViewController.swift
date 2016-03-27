@@ -16,7 +16,15 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        MapViewClient.sharedInstance().getStudentLocations() { (success, error) in
+            if success {
+                print("Got results")
+            } else {
+                if let error = error {
+                    print(error)
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
