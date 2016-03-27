@@ -17,7 +17,7 @@ extension MapViewClient {
         
         let parameters = [String: AnyObject]()
         
-        MapViewClient.sharedInstance().taskForGETMethod(MapViewClient.Methods.StudentLocations, parameters: parameters) { (resuts, error) in
+        taskForGETMethod(MapViewClient.Methods.StudentLocations, parameters: parameters) { (resuts, error) in
             
             if let error = error {
                 print(error.localizedDescription)

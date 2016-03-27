@@ -19,7 +19,7 @@ extension UdacityClient {
         
         let jsonBody = "{\"udacity\": {\"\(UdacityClient.URLKeys.UserID)\": \"\(userID)\", \"\(UdacityClient.URLKeys.UserPassword)\": \"\(userPassword)\"}}"
         
-        UdacityClient.sharedInstance().taskForPOSTMethod(UdacityClient.Methods.Session, parameters: parameters, jsonBody: jsonBody) { (results, error) in
+        taskForPOSTMethod(UdacityClient.Methods.Session, parameters: parameters, jsonBody: jsonBody) { (results, error) in
             
             if let error = error {
                 print("\(error.localizedDescription)\n")
