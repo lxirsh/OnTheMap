@@ -61,12 +61,11 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: MKMapViewDelegate
     
-    func MapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
         let reuseID = "pin"
         
         var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseID) as? MKPinAnnotationView
-        
         
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
@@ -82,6 +81,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
+            print("tapped")
             let app = UIApplication.sharedApplication()
             if let toOpen = view.annotation?.subtitle! {
                 app.openURL(NSURL(string: toOpen)!)
