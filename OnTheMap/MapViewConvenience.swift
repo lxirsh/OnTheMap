@@ -13,22 +13,21 @@ import Foundation
 
 extension MapViewClient {
     
-    func getStudentLocations(completionHandlerForGetStudentLocations: (results: [StudentInformation]?, errorString: String?) -> Void) {
+    func getStudentLocations(completionHandlerForGetStudentLocations:(success: Bool, errorString: String?) -> Void) {
         
         let parameters = [String: AnyObject]()
         
         taskForGETMethod(MapViewClient.Methods.StudentLocations, parameters: parameters) { (results, error) in
             
             if let error = error {
+                // TODO: user alert
                 print(error.localizedDescription)
             } else {
                 if let results = results[MapViewClient.JSONResponseKeys.studentList] as? [[String: AnyObject]] {
-//                    print(results)
-                    let students = StudentInformation.studentInformationFromResults(results)
-//                    print(students)
-                    completionHandlerForGetStudentLocations(results: students, errorString: nil)
+                    MapViewClient.sharedInstance().locations = StudentInformation.studentInformationFromResults(results)
+    completionHandlerForGetStudentLocations(success: true, errorString: nil)
                 } else {
-                    completionHandlerForGetStudentLocations(results: nil, errorString: "Could not parse data")
+                    completionHandlerForGetStudentLocations(success: false, errorString: "Could not parse data")
                 }
             }
         }

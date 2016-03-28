@@ -10,6 +10,11 @@ import Foundation
 
 class MapViewClient: NSObject {
     
+    // Properties
+    
+    var locations: [StudentInformation] = [StudentInformation]()
+
+    
     // Shared session
     var session = NSURLSession.sharedSession()
     
