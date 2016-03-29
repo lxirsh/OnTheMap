@@ -18,7 +18,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         
         mapView.delegate = self
 
-        MapViewClient.sharedInstance().getStudentLocations() { (success, error) in
+        OTMClient.sharedInstance().getStudentLocations() { (success, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
                     self.loadDataToMap()
@@ -36,7 +36,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
     func loadDataToMap() {
         var annotations = [MKPointAnnotation]()
         
-        for studentInfo in MapViewClient.sharedInstance().locations {
+        for studentInfo in OTMClient.sharedInstance().locations {
 //            print(studentInfo.firstName)
             let lat = CLLocationDegrees(studentInfo.latitude)
             let long = CLLocationDegrees(studentInfo.longitude)
@@ -81,7 +81,6 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            print("tapped")
             let app = UIApplication.sharedApplication()
             if let toOpen = view.annotation?.subtitle! {
                 app.openURL(NSURL(string: toOpen)!)

@@ -1,5 +1,5 @@
 //
-//  MapViewConstants.swift
+//  OTMConstants.swift
 //  OnTheMap
 //
 //  Created by Lance Hirsch on 3/26/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension MapViewClient {
+extension OTMClient {
     
     // MARK: Constants
     struct Constants {

@@ -1,5 +1,5 @@
 //
-//  MapViewClient.swift
+//  OTMClient.swift
 //  OnTheMap
 //
 //  Created by Lance Hirsch on 3/24/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MapViewClient: NSObject {
+class OTMClient: NSObject {
     
     // Properties
     
@@ -24,8 +24,8 @@ class MapViewClient: NSObject {
         
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtention: method))
-        request.addValue(MapViewClient.Constants.ParseAppID, forHTTPHeaderField: MapViewClient.URLKeys.ParseAppIDKey)
-        request.addValue(MapViewClient.Constants.RESTAPI, forHTTPHeaderField: MapViewClient.URLKeys.RESTAPIKey)
+        request.addValue(OTMClient.Constants.ParseAppID, forHTTPHeaderField: OTMClient.URLKeys.ParseAppIDKey)
+        request.addValue(OTMClient.Constants.RESTAPI, forHTTPHeaderField: OTMClient.URLKeys.RESTAPIKey)
         
         // Make the request
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
@@ -143,9 +143,9 @@ class MapViewClient: NSObject {
     private func urlFromParameters(parameters: [String: AnyObject], withPathExtention: String? = nil) -> NSURL {
         
         let components = NSURLComponents()
-        components.scheme = MapViewClient.Constants.ParseScheme
-        components.host = MapViewClient.Constants.ParseHost
-        components.path = MapViewClient.Constants.ApiPath + (withPathExtention ?? "")
+        components.scheme = OTMClient.Constants.ParseScheme
+        components.host = OTMClient.Constants.ParseHost
+        components.path = OTMClient.Constants.ApiPath + (withPathExtention ?? "")
         components.queryItems = [NSURLQueryItem]()
         
         for (key, value) in parameters {
@@ -157,9 +157,9 @@ class MapViewClient: NSObject {
     }
     
     // MARK: Shared instance
-    class func sharedInstance() -> MapViewClient {
+    class func sharedInstance() -> OTMClient {
         struct Singleton {
-            static var sharedInstance = MapViewClient()
+            static var sharedInstance = OTMClient()
         }
         return Singleton.sharedInstance
     }

@@ -22,12 +22,12 @@ struct StudentInformation {
     // MARK: Initializer
     
     init(dictionary: [String: AnyObject]) {
-        firstName = dictionary[MapViewClient.JSONResponseKeys.firstName] as! String
-        lastName = dictionary[MapViewClient.JSONResponseKeys.lastName] as! String
-        latitude = dictionary[MapViewClient.JSONResponseKeys.latitude] as! Double
-        longitude = dictionary[MapViewClient.JSONResponseKeys.longitude] as! Double
-        mapString = dictionary[MapViewClient.JSONResponseKeys.mapString] as! String
-        mediaURL = dictionary[MapViewClient.JSONResponseKeys.mediaURL] as! String
+        firstName = dictionary[OTMClient.JSONResponseKeys.firstName] as! String
+        lastName = dictionary[OTMClient.JSONResponseKeys.lastName] as! String
+        latitude = dictionary[OTMClient.JSONResponseKeys.latitude] as! Double
+        longitude = dictionary[OTMClient.JSONResponseKeys.longitude] as! Double
+        mapString = dictionary[OTMClient.JSONResponseKeys.mapString] as! String
+        mediaURL = dictionary[OTMClient.JSONResponseKeys.mediaURL] as! String
     }
     
     static func studentInformationFromResults(results: [[String: AnyObject]]) -> [StudentInformation] {

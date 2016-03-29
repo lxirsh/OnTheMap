@@ -1,5 +1,5 @@
 //
-//  MapViewConvenience.swift
+//  OTMConvenience.swift
 //  OnTheMap
 //
 //  Created by Lance Hirsch on 3/24/16.
@@ -9,22 +9,22 @@
 import UIKit
 import Foundation
 
-// MARK: MapViewClient (Convenient Resource Methods)
+// MARK: OTMClient (Convenient Resource Methods)
 
-extension MapViewClient {
+extension OTMClient {
     
     func getStudentLocations(completionHandlerForGetStudentLocations:(success: Bool, errorString: String?) -> Void) {
         
         let parameters = [String: AnyObject]()
         
-        taskForGETMethod(MapViewClient.Methods.StudentLocations, parameters: parameters) { (results, error) in
+        taskForGETMethod(OTMClient.Methods.StudentLocations, parameters: parameters) { (results, error) in
             
             if let error = error {
                 // TODO: user alert
                 print(error.localizedDescription)
             } else {
-                if let results = results[MapViewClient.JSONResponseKeys.studentList] as? [[String: AnyObject]] {
-                    MapViewClient.sharedInstance().locations = StudentInformation.studentInformationFromResults(results)
+                if let results = results[OTMClient.JSONResponseKeys.studentList] as? [[String: AnyObject]] {
+                    OTMClient.sharedInstance().locations = StudentInformation.studentInformationFromResults(results)
     completionHandlerForGetStudentLocations(success: true, errorString: nil)
                 } else {
                     completionHandlerForGetStudentLocations(success: false, errorString: "Could not parse data")
