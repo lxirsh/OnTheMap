@@ -36,6 +36,8 @@ extension UdacityClient {
             }
         }
     }
+    
+    // TODO: Get Public User Data
 
     
 }

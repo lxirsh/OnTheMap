@@ -72,6 +72,8 @@ class UdacityClient: NSObject {
         return task
     }
     
+    // TODO: DELETE Method (for logging out of a session)
+    
     // MARK: Post
     
     func taskForPOSTMethod(method: String, var parameters: [String: AnyObject], jsonBody: String, completionHandlerForPOST: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {

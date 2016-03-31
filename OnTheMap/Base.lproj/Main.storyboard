@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -93,7 +94,7 @@
             </objects>
             <point key="canvasLocation" x="-339" y="274"/>
         </scene>
-        <!--Table View Controller-->
+        <!--On The Map-->
         <scene sceneID="br7-BL-lbt">
             <objects>
                 <viewController id="tho-xh-KTU" customClass="OTMTableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -152,13 +153,19 @@
                             <constraint firstItem="xZY-rj-fJG" firstAttribute="top" secondItem="Qdc-yn-Zi1" secondAttribute="bottom" constant="8" symbolic="YES" id="z7E-Xh-TtI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="f0A-js-3DS"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="f0A-js-3DS">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="lrX-EC-c00"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="UMa-jI-05J"/>
+                            <barButtonItem systemItem="add" id="HrI-0W-0o9"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edt-le-OJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1320" y="984"/>
         </scene>
-        <!--Map View View Controller-->
+        <!--On The Map-->
         <scene sceneID="KlI-wk-0Kj">
             <objects>
                 <viewController id="mO2-EK-xkl" customClass="MapViewViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -185,7 +192,13 @@
                     <toolbarItems>
                         <barButtonItem title="Item" id="GO7-sl-dYt"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="vij-Ux-gYc"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="vij-Ux-gYc">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="BEM-ux-MzV"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="t9h-Ta-9d3"/>
+                            <barButtonItem systemItem="add" id="vuJ-1y-KQd"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="L4E-qg-H3Y" id="Vp4-2D-w1V"/>
