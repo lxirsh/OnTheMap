@@ -157,13 +157,35 @@
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="lrX-EC-c00"/>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="UMa-jI-05J"/>
-                            <barButtonItem systemItem="add" id="HrI-0W-0o9"/>
+                            <barButtonItem systemItem="add" id="HrI-0W-0o9">
+                                <connections>
+                                    <segue destination="bMd-Lj-wf8" kind="presentation" id="btU-cw-EoD"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edt-le-OJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1320" y="984"/>
+        </scene>
+        <!--Information Posting View Controller-->
+        <scene sceneID="64w-pk-MtB">
+            <objects>
+                <viewController id="bMd-Lj-wf8" customClass="InformationPostingViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cQc-p5-6wd"/>
+                        <viewControllerLayoutGuide type="bottom" id="5LI-sv-MQA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XLC-0W-As5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ok5-Uq-O13" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2057" y="757"/>
         </scene>
         <!--On The Map-->
         <scene sceneID="KlI-wk-0Kj">
@@ -196,7 +218,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="BEM-ux-MzV"/>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="t9h-Ta-9d3"/>
-                            <barButtonItem systemItem="add" id="vuJ-1y-KQd"/>
+                            <barButtonItem systemItem="add" id="vuJ-1y-KQd">
+                                <connections>
+                                    <segue destination="bMd-Lj-wf8" kind="presentation" id="tcq-ar-9hR"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -266,4 +292,7 @@
             <point key="canvasLocation" x="508" y="984"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tcq-ar-9hR"/>
+    </inferredMetricsTieBreakers>
 </document>
