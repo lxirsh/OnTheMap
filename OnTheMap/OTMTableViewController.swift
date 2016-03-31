@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OTMTableViewController: UIViewController {
+class OTMTableViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +33,21 @@ class OTMTableViewController: UIViewController {
         
         return cell
     }
+    
+    // MARK: Navigation
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let app = UIApplication.sharedApplication()
+        let urlString = OTMClient.sharedInstance().locations[indexPath.row].mediaURL
+        if let url = NSURL(string: urlString) {
+            let canOpen = UIApplication.sharedApplication().canOpenURL(url)
+            app.openURL(url)
+            print(url)
+        } // TODO: Create alert
+        
+    }
+    
+    
     
     
 }
