@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import MapKit
 
-class InformationPostingViewController: UIViewController {
+class InformationPostingViewController: UIViewController, MKMapViewDelegate{
 
+    @IBOutlet weak var mapView: MKMapView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        mapView.alpha = 0
     }
 
     override func didReceiveMemoryWarning() {

@@ -180,13 +180,82 @@
                     <view key="view" contentMode="scaleToFill" id="XLC-0W-As5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="euP-w8-rTZ">
+                                <rect key="frame" x="20" y="203" width="560" height="377"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bMd-Lj-wf8" id="n7f-8N-Ny3"/>
+                                </connections>
+                            </mapView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Where are you studying today?" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cl9-1A-Ig1">
+                                <rect key="frame" x="20" y="72" width="560" height="123"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="123" id="H33-ae-Fa4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afR-k2-GnV">
+                                <rect key="frame" x="20" y="464" width="560" height="116"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BM2-gM-591">
+                                        <rect key="frame" x="225" y="43" width="111" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Find on the Map"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="BM2-gM-591" firstAttribute="centerX" secondItem="afR-k2-GnV" secondAttribute="centerX" id="3JJ-Td-ccY"/>
+                                    <constraint firstItem="BM2-gM-591" firstAttribute="centerY" secondItem="afR-k2-GnV" secondAttribute="centerY" id="40p-QB-n4m"/>
+                                    <constraint firstItem="BM2-gM-591" firstAttribute="top" secondItem="afR-k2-GnV" secondAttribute="top" constant="43" id="Nrw-Y3-lTs"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXP-RP-nLY">
+                                <rect key="frame" x="20" y="195" width="560" height="270"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your location here." borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="82Y-Zv-PfG">
+                                        <rect key="frame" x="8" y="18" width="544" height="30"/>
+                                        <color key="backgroundColor" red="0.24851240159999999" green="0.35116671570000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="82Y-Zv-PfG" firstAttribute="trailing" secondItem="dXP-RP-nLY" secondAttribute="trailingMargin" id="3Jo-At-U6m"/>
+                                    <constraint firstItem="82Y-Zv-PfG" firstAttribute="top" secondItem="dXP-RP-nLY" secondAttribute="top" constant="18" id="GrC-07-tV1"/>
+                                    <constraint firstItem="82Y-Zv-PfG" firstAttribute="leading" secondItem="dXP-RP-nLY" secondAttribute="leadingMargin" id="f1g-gh-Wcf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dXP-RP-nLY" firstAttribute="leading" secondItem="euP-w8-rTZ" secondAttribute="leading" id="153-U3-Em2"/>
+                            <constraint firstItem="cl9-1A-Ig1" firstAttribute="top" secondItem="cQc-p5-6wd" secondAttribute="bottom" constant="8" symbolic="YES" id="49f-kp-W0K"/>
+                            <constraint firstItem="dXP-RP-nLY" firstAttribute="trailing" secondItem="afR-k2-GnV" secondAttribute="trailing" id="BTR-dr-nsc"/>
+                            <constraint firstItem="5LI-sv-MQA" firstAttribute="top" secondItem="dXP-RP-nLY" secondAttribute="bottom" constant="135" id="CVl-w4-L0g"/>
+                            <constraint firstItem="dXP-RP-nLY" firstAttribute="top" secondItem="cl9-1A-Ig1" secondAttribute="bottom" id="KSn-G4-3Zc"/>
+                            <constraint firstItem="afR-k2-GnV" firstAttribute="bottom" secondItem="euP-w8-rTZ" secondAttribute="bottom" id="PgP-Mh-FTW"/>
+                            <constraint firstItem="afR-k2-GnV" firstAttribute="leading" secondItem="XLC-0W-As5" secondAttribute="leadingMargin" id="QO8-zV-hq1"/>
+                            <constraint firstItem="euP-w8-rTZ" firstAttribute="top" secondItem="cl9-1A-Ig1" secondAttribute="bottom" constant="8" symbolic="YES" id="WHe-dT-51S"/>
+                            <constraint firstItem="afR-k2-GnV" firstAttribute="trailing" secondItem="euP-w8-rTZ" secondAttribute="trailing" id="Wp6-2E-BLW"/>
+                            <constraint firstItem="afR-k2-GnV" firstAttribute="leading" secondItem="cl9-1A-Ig1" secondAttribute="leading" id="e5B-Qy-9eh"/>
+                            <constraint firstAttribute="bottom" secondItem="afR-k2-GnV" secondAttribute="bottom" constant="20" symbolic="YES" id="sGz-Uc-PYR"/>
+                            <constraint firstItem="afR-k2-GnV" firstAttribute="trailing" secondItem="cl9-1A-Ig1" secondAttribute="trailing" id="tzQ-1L-1tY"/>
+                            <constraint firstItem="afR-k2-GnV" firstAttribute="leading" secondItem="euP-w8-rTZ" secondAttribute="leading" id="vmm-4P-B7K"/>
+                            <constraint firstItem="afR-k2-GnV" firstAttribute="trailing" secondItem="XLC-0W-As5" secondAttribute="trailingMargin" id="xrg-4f-6mF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AIg-39-Wfh"/>
+                    <connections>
+                        <outlet property="mapView" destination="euP-w8-rTZ" id="ozc-Xp-Hcs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ok5-Uq-O13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2869" y="757"/>
+            <point key="canvasLocation" x="2641" y="784"/>
         </scene>
         <!--On The Map-->
         <scene sceneID="KlI-wk-0Kj">
@@ -308,7 +377,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqW-0K-bRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="757"/>
+            <point key="canvasLocation" x="1945" y="784"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
