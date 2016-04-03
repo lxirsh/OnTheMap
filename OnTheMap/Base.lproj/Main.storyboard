@@ -187,6 +187,20 @@
                                     <outlet property="delegate" destination="bMd-Lj-wf8" id="n7f-8N-Ny3"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjF-BV-lIl">
+                                <rect key="frame" x="272" y="503" width="55" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Submit"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="butonTouched:" destination="bMd-Lj-wf8" eventType="touchUpInside" id="dmC-69-ytn"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Where are you studying today?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cl9-1A-Ig1">
                                 <rect key="frame" x="20" y="72" width="560" height="123"/>
                                 <constraints>
@@ -259,6 +273,8 @@
                             <constraint firstItem="afR-k2-GnV" firstAttribute="trailing" secondItem="euP-w8-rTZ" secondAttribute="trailing" id="Wp6-2E-BLW"/>
                             <constraint firstItem="cl9-1A-Ig1" firstAttribute="centerX" secondItem="dXP-RP-nLY" secondAttribute="centerX" id="Zf7-JE-NBn"/>
                             <constraint firstItem="dXP-RP-nLY" firstAttribute="leading" secondItem="XLC-0W-As5" secondAttribute="leadingMargin" constant="-20" id="ePg-p7-3Ps"/>
+                            <constraint firstItem="hjF-BV-lIl" firstAttribute="centerX" secondItem="afR-k2-GnV" secondAttribute="centerX" id="jGQ-IZ-cwr"/>
+                            <constraint firstItem="hjF-BV-lIl" firstAttribute="centerY" secondItem="afR-k2-GnV" secondAttribute="centerY" id="oNP-Wu-TeG"/>
                             <constraint firstAttribute="bottom" secondItem="afR-k2-GnV" secondAttribute="bottom" constant="20" symbolic="YES" id="sGz-Uc-PYR"/>
                             <constraint firstItem="afR-k2-GnV" firstAttribute="trailing" secondItem="XLC-0W-As5" secondAttribute="trailingMargin" constant="20" id="tTv-3b-Nw8"/>
                             <constraint firstItem="afR-k2-GnV" firstAttribute="leading" secondItem="euP-w8-rTZ" secondAttribute="leading" id="vmm-4P-B7K"/>
@@ -281,6 +297,7 @@
                         <outlet property="mapView" destination="euP-w8-rTZ" id="ozc-Xp-Hcs"/>
                         <outlet property="middleTextField" destination="82Y-Zv-PfG" id="Eyz-p6-yum"/>
                         <outlet property="middleView" destination="dXP-RP-nLY" id="Yzn-vN-l7i"/>
+                        <outlet property="submitButton" destination="hjF-BV-lIl" id="M62-GQ-Xr1"/>
                         <outlet property="topTextField" destination="cl9-1A-Ig1" id="brs-bu-f9C"/>
                     </connections>
                 </viewController>

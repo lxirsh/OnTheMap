@@ -17,6 +17,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var middleTextField: UITextField!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var submitButton: UIButton!
     
     enum UIState: String {
         case Initial, Searching, LocationView
@@ -51,7 +52,8 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
             mapView.alpha = 1
             topTextField.text = "Enter a Link to Share Here"
             topTextField.enabled = true
-            button.setTitle("Submit", forState: .Normal)
+//            button.setTitle("Submit", forState: .Normal)
+            button.alpha = 0
             print("Location view")
         }
     }
