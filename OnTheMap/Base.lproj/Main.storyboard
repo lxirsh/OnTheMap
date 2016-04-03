@@ -208,6 +208,9 @@
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="butonTouched:" destination="bMd-Lj-wf8" eventType="touchUpInside" id="6Uo-vH-mNw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
@@ -264,7 +267,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="AIg-39-Wfh"/>
                     <connections>
+                        <outlet property="bottomView" destination="afR-k2-GnV" id="EmB-gH-NPj"/>
+                        <outlet property="button" destination="BM2-gM-591" id="FeC-1G-Ykj"/>
                         <outlet property="mapView" destination="euP-w8-rTZ" id="ozc-Xp-Hcs"/>
+                        <outlet property="middleTextField" destination="82Y-Zv-PfG" id="Eyz-p6-yum"/>
+                        <outlet property="middleView" destination="dXP-RP-nLY" id="Yzn-vN-l7i"/>
+                        <outlet property="topTextField" destination="cl9-1A-Ig1" id="brs-bu-f9C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ok5-Uq-O13" userLabel="First Responder" sceneMemberID="firstResponder"/>
