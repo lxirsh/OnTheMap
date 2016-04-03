@@ -204,7 +204,7 @@
                                         <state key="normal" title="Find on the Map"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="BM2-gM-591" firstAttribute="centerX" secondItem="afR-k2-GnV" secondAttribute="centerX" id="3JJ-Td-ccY"/>
                                     <constraint firstItem="BM2-gM-591" firstAttribute="centerY" secondItem="afR-k2-GnV" secondAttribute="centerY" id="40p-QB-n4m"/>
@@ -216,13 +216,13 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your location here." borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="82Y-Zv-PfG">
                                         <rect key="frame" x="8" y="18" width="544" height="30"/>
-                                        <color key="backgroundColor" red="0.24851240159999999" green="0.35116671570000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.30980392156862746" green="0.58039215686274503" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.30980392156862746" green="0.58039215686274503" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="82Y-Zv-PfG" firstAttribute="trailing" secondItem="dXP-RP-nLY" secondAttribute="trailingMargin" id="3Jo-At-U6m"/>
                                     <constraint firstItem="82Y-Zv-PfG" firstAttribute="top" secondItem="dXP-RP-nLY" secondAttribute="top" constant="18" id="GrC-07-tV1"/>
@@ -230,7 +230,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dXP-RP-nLY" firstAttribute="leading" secondItem="euP-w8-rTZ" secondAttribute="leading" id="153-U3-Em2"/>
                             <constraint firstItem="cl9-1A-Ig1" firstAttribute="top" secondItem="cQc-p5-6wd" secondAttribute="bottom" constant="8" symbolic="YES" id="49f-kp-W0K"/>
