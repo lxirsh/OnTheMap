@@ -29,8 +29,10 @@ extension UdacityClient {
                     completionHandlerForGetSessionID(success: false, errorString: "The internet connection appears to be offline.")
                 }
             } else {
-                if let results = results {
-                    print(results)
+                if let session = results[UdacityClient.JSONresponseKeys.Account] as? [String: AnyObject] {
+                    if let user = session[UdacityClient.JSONresponseKeys.UserID] as? String {
+                        UdacityClient.sharedInstance().userID = user
+                    }
                     completionHandlerForGetSessionID(success: true, errorString: nil)
                 }
             }
