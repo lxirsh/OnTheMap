@@ -27,7 +27,6 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        mapView.alpha = 0
         configureUIForState(.Initial)
     }
     
@@ -48,12 +47,11 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
             print("Searching")
         case .LocationView:
             middleView.alpha = 0
-            bottomView.alpha = 0.5
+            bottomView.alpha = 0.75
             mapView.alpha = 1
             topTextField.text = "Enter a Link to Share Here"
             topTextField.enabled = true
-//            button.setTitle("Submit", forState: .Normal)
-            button.alpha = 0
+            button.setTitle("Submit", forState: .Normal)
             print("Location view")
         }
     }

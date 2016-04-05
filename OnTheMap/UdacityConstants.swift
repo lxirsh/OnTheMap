@@ -26,11 +26,18 @@ extension UdacityClient {
         
         // MARK: Account
         static let Session = "/session"
+        static let PublicUserData = "/users/{id}"
     }
     
     // MARK: URLKeys
     struct URLKeys {
         static let UserID = "username"
         static let UserPassword = "password"
+    }
+    
+    // MARK: JSON response keys
+    struct JSONresponseKeys {
+        static let Account = "account"
+        static let UserID = "key"
     }
 }
