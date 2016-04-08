@@ -28,6 +28,16 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
 
         // Do any additional setup after loading the view.
         configureUIForState(.Initial)
+        
+        UdacityClient.sharedInstance().getPublicUserData(UdacityClient.sharedInstance().userID!) { (success, error) in
+            dispatch_async(dispatch_get_main_queue(), {
+                if let error = error  {
+                    print(error)
+                } else {
+                    print("ok")
+                }
+            })
+        }
     }
     
     @IBAction func butonTouched(sender: AnyObject) {

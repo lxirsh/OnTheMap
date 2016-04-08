@@ -20,6 +20,9 @@ class UdacityClient: NSObject {
     var userID: String? = nil
     var userPassword: String? = nil
     var sessionID: String? = nil
+    var firstName: String? = nil
+    var lastName: String? = nil
+    var publicUserData: [String: AnyObject]?
     
     // MARK: Initializers
 
@@ -126,7 +129,7 @@ class UdacityClient: NSObject {
     // MARK: Helpers
     
     // Substitute the key for the value that is contained within the method name
-    func substituteKeyInMethod(method: String, key: String, value: String) -> String? {
+    func subtituteKeyInMethod(method: String, key: String, value: String) -> String? {
         if method.rangeOfString("{\(key)}") != nil {
             return method.stringByReplacingOccurrencesOfString("{\(key)}", withString: value)
         } else {

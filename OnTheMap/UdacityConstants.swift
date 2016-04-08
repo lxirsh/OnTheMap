@@ -31,8 +31,9 @@ extension UdacityClient {
     
     // MARK: URLKeys
     struct URLKeys {
-        static let UserID = "username"
+        static let LoginID = "username"
         static let UserPassword = "password"
+        static let UserID = "id"
     }
     
     // MARK: JSON response keys
