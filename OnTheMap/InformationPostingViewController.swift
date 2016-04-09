@@ -35,6 +35,8 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
                     print(error)
                 } else {
                     print("ok")
+                    print(UdacityClient.sharedInstance().firstName)
+                    print(UdacityClient.sharedInstance().lastName)
                 }
             })
         }

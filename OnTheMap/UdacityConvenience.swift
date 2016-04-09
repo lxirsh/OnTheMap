@@ -56,17 +56,26 @@ extension UdacityClient {
             if let error = error {
                 completionHandlerForUserData(success: nil, errorString: "Could not get public user data")
             } else {
-                if let results = results as? [String: AnyObject]{
-                    if let userData = results["user"] as? [String: AnyObject] {
-                        if let firstName = userData["first_name"] as? String {
-                            if let lastName = userData["last_name"] as? String {
-                                completionHandlerForUserData(success: true, errorString: nil)
-                            }
-                        }
-                    }
-                } else {
-                    completionHandlerForUserData(success: nil, errorString: "Could not parse user data")
+                guard let results = results as? [String: AnyObject] else {
+                    completionHandlerForUserData(success: false, errorString: "Could not parse JSON data as a dictionary")
+                    return
                 }
+                guard let userData = results["user"] as? [String: AnyObject] else {
+                    completionHandlerForUserData(success: false, errorString: "Could not find the key 'user' in the dictionary")
+                    return
+                }
+                guard let firstName = userData["first_name"] as? String else {
+                    completionHandlerForUserData(success: false, errorString: "Could not find the key 'first_name' in the dictionary")
+                    return
+                }
+                guard let lastName = userData["last_name"] as? String else {
+                    completionHandlerForUserData(success: false, errorString: "Could not find the key 'last_name' in the dictionary")
+                    return
+                }
+                self.firstName = firstName
+                self.lastName = lastName
+                completionHandlerForUserData(success: true, errorString: nil)
+
             }
         }
     }

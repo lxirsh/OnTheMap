@@ -34,6 +34,18 @@ extension OTMClient {
         
     }
     
+    // MARK: Parameter keys
+    struct ParameterKeys {
+        static let UniqueKey = "uniqueKey"
+        static let FirstName = "firstName"
+        static let LastName = "lastName"
+        static let MapString = "mapString"
+        static let MediaURL = "mediaURL"
+        static let Latitude = "latitude"
+        static let Longitude = "longitude"
+        
+    }
+    
     // MARK: JSON Response Keys
     struct JSONResponseKeys {
         static let studentList = "results"

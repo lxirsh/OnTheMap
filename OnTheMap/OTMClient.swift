@@ -13,7 +13,11 @@ class OTMClient: NSObject {
     // Properties
     
     var locations: [StudentInformation] = [StudentInformation]()
-
+    
+    var mapString: String? = nil
+    var mediaURL: String? = nil
+    var latitude: Float? = nil
+    var longitude: Float? = nil
     
     // Shared session
     var session = NSURLSession.sharedSession()
