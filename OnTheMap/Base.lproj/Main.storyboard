@@ -182,7 +182,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="euP-w8-rTZ">
-                                <rect key="frame" x="0.0" y="203" width="600" height="377"/>
+                                <rect key="frame" x="0.0" y="203" width="600" height="397"/>
                                 <connections>
                                     <outlet property="delegate" destination="bMd-Lj-wf8" id="n7f-8N-Ny3"/>
                                 </connections>
@@ -196,10 +196,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afR-k2-GnV">
-                                <rect key="frame" x="0.0" y="460" width="600" height="120"/>
+                                <rect key="frame" x="0.0" y="465" width="600" height="135"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BM2-gM-591">
-                                        <rect key="frame" x="238" y="43" width="124" height="33"/>
+                                        <rect key="frame" x="238" y="43" width="124" height="49"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Find on the Map"/>
@@ -249,9 +249,11 @@
                             <constraint firstItem="cl9-1A-Ig1" firstAttribute="top" secondItem="cQc-p5-6wd" secondAttribute="bottom" constant="8" symbolic="YES" id="2om-Lr-V0O"/>
                             <constraint firstItem="euP-w8-rTZ" firstAttribute="top" secondItem="cl9-1A-Ig1" secondAttribute="bottom" constant="8" symbolic="YES" id="2rk-Us-4Gd"/>
                             <constraint firstItem="dXP-RP-nLY" firstAttribute="trailing" secondItem="XLC-0W-As5" secondAttribute="trailingMargin" constant="20" id="5rM-Fl-gcQ"/>
+                            <constraint firstItem="5LI-sv-MQA" firstAttribute="top" secondItem="afR-k2-GnV" secondAttribute="bottom" id="BIH-fg-kt7"/>
                             <constraint firstItem="dXP-RP-nLY" firstAttribute="trailing" secondItem="afR-k2-GnV" secondAttribute="trailing" id="BTR-dr-nsc"/>
                             <constraint firstItem="5LI-sv-MQA" firstAttribute="top" secondItem="dXP-RP-nLY" secondAttribute="bottom" constant="135" id="CVl-w4-L0g"/>
                             <constraint firstItem="euP-w8-rTZ" firstAttribute="trailing" secondItem="XLC-0W-As5" secondAttribute="trailingMargin" constant="20" id="EG3-R6-oD1"/>
+                            <constraint firstItem="afR-k2-GnV" firstAttribute="top" secondItem="dXP-RP-nLY" secondAttribute="bottom" id="H0e-jv-gWi"/>
                             <constraint firstItem="afR-k2-GnV" firstAttribute="bottom" secondItem="euP-w8-rTZ" secondAttribute="bottom" id="PgP-Mh-FTW"/>
                             <constraint firstItem="afR-k2-GnV" firstAttribute="leading" secondItem="XLC-0W-As5" secondAttribute="leadingMargin" id="QO8-zV-hq1"/>
                             <constraint firstItem="euP-w8-rTZ" firstAttribute="leading" secondItem="XLC-0W-As5" secondAttribute="leadingMargin" constant="-20" id="S3b-ZK-FAU"/>
@@ -270,6 +272,7 @@
                                 <exclude reference="153-U3-Em2"/>
                                 <exclude reference="BTR-dr-nsc"/>
                                 <exclude reference="QO8-zV-hq1"/>
+                                <exclude reference="sGz-Uc-PYR"/>
                                 <exclude reference="xrg-4f-6mF"/>
                             </mask>
                         </variation>

@@ -44,7 +44,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
     }
     
     @IBAction func butonTouched(sender: AnyObject) {
-        configureUIForState(.LocationView)
+        configureUIForState(.Searching)
         if middleTextField.text != nil {
             searchString = middleTextField.text
             OTMClient.sharedInstance().getUserLocation(searchString!) { (success, error) in
@@ -82,14 +82,22 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
             topTextField.enabled = false
             middleTextField.enabled = true
         case .Searching:
-            print("Searching")
-        case .LocationView:
+            view.backgroundColor = UIColor(red: 79.0/255.0, green: 148/255, blue: 205/255, alpha: 1)
             middleView.alpha = 0
             bottomView.alpha = 0.75
             mapView.alpha = 1
             topTextField.text = "Enter a Link to Share Here"
             topTextField.enabled = true
+//             = UIColor(red: (79/255), green: (148/255), blue: (205/255), alpha: 1)
             button.setTitle("Submit", forState: .Normal)
+            print("Searching")
+        case .LocationView:
+//            middleView.alpha = 0
+//            bottomView.alpha = 0.75
+//            mapView.alpha = 1
+//            topTextField.text = "Enter a Link to Share Here"
+//            topTextField.enabled = true
+//            button.setTitle("Submit", forState: .Normal)
             print("Location view")
         }
     }
