@@ -83,6 +83,8 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
             middleTextField.enabled = true
         case .Searching:
             view.backgroundColor = UIColor(red: 79.0/255.0, green: 148/255, blue: 205/255, alpha: 1)
+            navigationController?.navigationBar.translucent = false
+            navigationController?.navigationBar.barTintColor = UIColor(red: 79.0/255.0, green: 148/255, blue: 205/255, alpha: 1)
             middleView.alpha = 0
             bottomView.alpha = 0.75
             mapView.alpha = 1
