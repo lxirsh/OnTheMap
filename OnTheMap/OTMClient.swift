@@ -16,8 +16,8 @@ class OTMClient: NSObject {
     
     var mapString: String? = nil
     var mediaURL: String? = nil
-    var latitude: Float? = nil
-    var longitude: Float? = nil
+    var latitude: Double? = nil
+    var longitude: Double? = nil
     
     // Shared session
     var session = NSURLSession.sharedSession()

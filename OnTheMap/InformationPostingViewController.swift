@@ -19,6 +19,8 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     
+    var searchString: String?
+    
     enum UIState: String {
         case Initial, Searching, LocationView
     }
@@ -44,6 +46,19 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
     
     @IBAction func butonTouched(sender: AnyObject) {
         configureUIForState(.LocationView)
+        if middleTextField.text != nil {
+            searchString = middleTextField.text
+            OTMClient.sharedInstance().getUserLocation(searchString!) { (success, error) in
+                dispatch_async(dispatch_get_main_queue(), {
+                    if let error = error  {
+                        print(error)
+                    } else {
+                        print("ok")
+                    }
+                })
+            }
+
+        }
     }
     
     func configureUIForState(state: UIState) {
@@ -55,6 +70,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
             bottomView.alpha = 1
             mapView.alpha = 0
             topTextField.enabled = false
+            middleTextField.enabled = true
         case .Searching:
             print("Searching")
         case .LocationView:
