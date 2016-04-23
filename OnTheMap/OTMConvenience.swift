@@ -49,6 +49,7 @@ extension OTMClient {
                 let placemark = placemarks![0] 
                 let location = placemark.location
                 
+                
                 // Set the variables in the OTMClient
                 self.latitude = location?.coordinate.latitude
                 self.longitude = location?.coordinate.longitude

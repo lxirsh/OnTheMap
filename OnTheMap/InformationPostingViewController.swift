@@ -28,7 +28,6 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         configureUIForState(.Initial)
         
         UdacityClient.sharedInstance().getPublicUserData(UdacityClient.sharedInstance().userID!) { (success, error) in
@@ -53,12 +52,23 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
                     if let error = error  {
                         print(error)
                     } else {
-                        print("ok")
+                        self.showUserLocation()
                     }
                 })
             }
 
         }
+    }
+    
+    func showUserLocation() {
+        let latitude = OTMClient.sharedInstance().latitude!
+        let longitude = OTMClient.sharedInstance().longitude!
+        
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        let regionRadius: CLLocationDistance = 1000
+        
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
     
     func configureUIForState(state: UIState) {
