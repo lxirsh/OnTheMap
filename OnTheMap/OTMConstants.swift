@@ -34,8 +34,8 @@ extension OTMClient {
         
     }
     
-    // MARK: Parameter keys
-    struct ParameterKeys {
+    // MARK: JSON Body keys
+    struct JSONBodyKeys {
         static let UniqueKey = "uniqueKey"
         static let FirstName = "firstName"
         static let LastName = "lastName"

@@ -76,8 +76,10 @@ class OTMClient: NSObject {
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtention: method))
         request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(OTMClient.Constants.ParseAppID, forHTTPHeaderField: OTMClient.URLKeys.ParseAppIDKey)
+        request.addValue(OTMClient.Constants.RESTAPI, forHTTPHeaderField: OTMClient.URLKeys.RESTAPIKey)
         request.HTTPBody = jsonBody.dataUsingEncoding(NSUTF8StringEncoding)
         
         // Make the request

@@ -44,20 +44,39 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
     }
     
     @IBAction func butonTouched(sender: AnyObject) {
-        configureUIForState(.Searching)
-        if middleTextField.text != nil {
-            searchString = middleTextField.text
-            OTMClient.sharedInstance().getUserLocation(searchString!) { (success, error) in
-                dispatch_async(dispatch_get_main_queue(), {
-                    if let error = error  {
-                        print(error)
-                    } else {
-                        self.showUserLocation()
+        
+        switch button.titleLabel!.text! {
+            case "Find on the map":
+                configureUIForState(.Searching)
+                if middleTextField.text != nil {
+                    searchString = middleTextField.text
+                    OTMClient.sharedInstance().getUserLocation(searchString!) { (success, error) in
+                        dispatch_async(dispatch_get_main_queue(), {
+                            if let error = error  {
+                                print(error)
+                            } else {
+                                self.showUserLocation()
+                            }
+                        })
                     }
-                })
+                    
             }
-
+            case "Submit":
+                OTMClient.sharedInstance().postStudentLocation() { (success, error) in
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if let error = error  {
+                            print(error)
+                        } else {
+                            print("OK")
+                        }
+                    })
+            }
+            default:
+                print("error")
         }
+        
+        
+
     }
     
     func showUserLocation() {
@@ -81,6 +100,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
             mapView.alpha = 0
             topTextField.enabled = false
             middleTextField.enabled = true
+            button.setTitle("Find on the map", forState: .Normal)
         case .Searching:
             view.backgroundColor = UIColor(red: 79.0/255.0, green: 148/255, blue: 205/255, alpha: 1)
             navigationController?.navigationBar.translucent = false
