@@ -68,6 +68,9 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
                             print(error)
                         } else {
                             print("OK")
+                            let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MapViewNavigationController") as! UINavigationController
+                            self.navigationController!.presentViewController(rootViewController, animated: true, completion: nil)
+                            
                         }
                     })
             }
