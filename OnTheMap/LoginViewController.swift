@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
     }
     
     func loginToUdacity() {
-        UdacityClient.sharedInstance().getSessionID(userID: self.usernameTextField.text!, userPassword: self.passwordTextField.text!) { (success, error) in
+        UdacityClient.sharedInstance().getSessionID(loginID: self.usernameTextField.text!, userPassword: self.passwordTextField.text!) { (success, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
                     print("success")

@@ -54,6 +54,16 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         }
         self.mapView.addAnnotations(annotations)
     }
+    
+    func userIsAlreadyPinned () -> Bool {
+        for student in OTMClient.sharedInstance().locations {
+            if student.uniqueKey == UdacityClient.sharedInstance().userID
+            {
+                return true
+            }
+        }
+        return false
+    }
         
 
     override func didReceiveMemoryWarning() {

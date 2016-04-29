@@ -17,7 +17,7 @@ class UdacityClient: NSObject {
     // Shared session
     var session = NSURLSession.sharedSession()
     
-    var userID: String? = nil
+    var userID: String? = nil // This is the same as the uniqueKey for the Parse API
     var userPassword: String? = nil
     var sessionID: String? = nil
     var firstName: String? = nil

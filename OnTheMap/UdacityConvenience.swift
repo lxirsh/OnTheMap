@@ -13,11 +13,11 @@ import Foundation
 
 extension UdacityClient {
     
-    func getSessionID(userID userID: String, userPassword: String, completionHandlerForGetSessionID: (success: Bool, errorString: String?) -> Void) {
+    func getSessionID(loginID loginID: String, userPassword: String, completionHandlerForGetSessionID: (success: Bool, errorString: String?) -> Void) {
         
         let parameters = [String: AnyObject]()
         
-        let jsonBody = "{\"udacity\": {\"\(UdacityClient.URLKeys.LoginID)\": \"\(userID)\", \"\(UdacityClient.URLKeys.UserPassword)\": \"\(userPassword)\"}}"
+        let jsonBody = "{\"udacity\": {\"\(UdacityClient.URLKeys.LoginID)\": \"\(loginID)\", \"\(UdacityClient.URLKeys.UserPassword)\": \"\(userPassword)\"}}"
         
         taskForPOSTMethod(UdacityClient.Methods.Session, parameters: parameters, jsonBody: jsonBody) { (results, error) in
             
