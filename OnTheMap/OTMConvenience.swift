@@ -24,15 +24,22 @@ extension OTMClient {
             if let error = error {
                 // TODO: user alert
                 print(error.localizedDescription)
-            } else {
+            } else {                
                 if let results = results[OTMClient.JSONResponseKeys.studentList] as? [[String: AnyObject]] {
                     OTMClient.sharedInstance().locations = StudentInformation.studentInformationFromResults(results)
-    completionHandlerForGetStudentLocations(success: true, errorString: nil)
+                    completionHandlerForGetStudentLocations(success: true, errorString: nil)
                 } else {
                     completionHandlerForGetStudentLocations(success: false, errorString: "Could not parse data")
                 }
             }
         }
+    }
+    
+    func queryStudentLocation(completionHandlerForQueryStudentLocation: (sucess: Bool?, errorString: String?) -> Void) {
+        
+        let parameters = [
+            "where" : NSURLQueryItem(name: "fjfjhfg", value: "hfjfgj")
+        ]
     }
     
     // Get the user's inputed location.

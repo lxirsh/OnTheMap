@@ -21,6 +21,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         OTMClient.sharedInstance().getStudentLocations() { (success, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
+                    print(OTMClient.sharedInstance().locations)
                     self.loadDataToMap()
                 } else {
                     if let error = error {
@@ -53,6 +54,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         }
         self.mapView.addAnnotations(annotations)
     }
+        
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -55,6 +55,7 @@ extension OTMClient {
         static let longitude = "longitude"
         static let mapString = "mapString"
         static let mediaURL = "mediaURL"
+        static let uniqueKey = "uniqueKey"
     }
     
     
