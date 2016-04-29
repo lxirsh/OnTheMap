@@ -157,11 +157,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="lrX-EC-c00"/>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="UMa-jI-05J"/>
-                            <barButtonItem systemItem="add" id="HrI-0W-0o9">
-                                <connections>
-                                    <segue destination="JTe-71-SZ0" kind="presentation" id="btU-cw-EoD"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="HrI-0W-0o9"/>
                         </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
@@ -289,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ok5-Uq-O13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2641" y="784"/>
+            <point key="canvasLocation" x="2831" y="686"/>
         </scene>
         <!--On The Map-->
         <scene sceneID="KlI-wk-0Kj">
@@ -322,11 +318,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="BEM-ux-MzV"/>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="t9h-Ta-9d3"/>
-                            <barButtonItem systemItem="add" id="vuJ-1y-KQd">
-                                <connections>
-                                    <segue destination="JTe-71-SZ0" kind="presentation" id="tcq-ar-9hR"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="vuJ-1y-KQd"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -411,10 +403,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqW-0K-bRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="784"/>
+            <point key="canvasLocation" x="2083" y="438"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="tcq-ar-9hR"/>
-    </inferredMetricsTieBreakers>
 </document>
