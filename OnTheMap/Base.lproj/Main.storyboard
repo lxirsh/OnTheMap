@@ -338,7 +338,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="mTk-be-jey">
             <objects>
-                <tabBarController id="0k0-DU-iEH" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" id="0k0-DU-iEH" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="9he-QK-bSb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -357,7 +357,7 @@
         <!--Map-->
         <scene sceneID="19t-4F-xqJ">
             <objects>
-                <navigationController storyboardIdentifier="MapViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Ni1-n6-YjK" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ni1-n6-YjK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" id="Yj0-Qd-9do"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jmj-WS-QEq">
