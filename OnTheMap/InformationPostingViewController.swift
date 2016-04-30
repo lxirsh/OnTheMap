@@ -21,6 +21,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     
     
     let defaultMiddleTextFieldText = "Enter your location here."
+    let shareLinkText = "Enter a Link to Share Here."
     var searchString: String?
     
     enum UIState: String {
@@ -30,6 +31,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.topTextField.delegate = self
         self.middleTextField.delegate = self
         self.middleTextField.text = defaultMiddleTextFieldText
 
@@ -52,7 +54,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
         
         switch button.titleLabel!.text! {
             case "Find on the map":
-                if middleTextField.text != "" || middleTextField.text != defaultMiddleTextFieldText {
+                if middleTextField.text == "" || middleTextField.text == defaultMiddleTextFieldText {
                     let ac = UIAlertController(title: "", message: "Must enter a location", preferredStyle: .Alert)
                     ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                     presentViewController(ac, animated: true, completion: nil)
@@ -71,19 +73,27 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                     }
             }
             case "Submit":
-                let mediaURL = topTextField.text
-                OTMClient.sharedInstance().postStudentLocation(mediaURL!) { (success, error) in
-                    dispatch_async(dispatch_get_main_queue(), {
-                        if let error = error  {
-                            print(error)
-                        } else {
-                            print("OK")
-                            let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
-                            self.navigationController!.presentViewController(rootViewController, animated: true, completion: nil)
-                            
-                        }
-                    })
-            }
+                if topTextField.text == "" || topTextField.text == shareLinkText {
+                    let ac = UIAlertController(title: "", message: "Must enter a link", preferredStyle: .Alert)
+                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                    presentViewController(ac, animated: true, completion: nil)
+
+                } else {
+                    let mediaURL = topTextField.text
+                    OTMClient.sharedInstance().postStudentLocation(mediaURL!) { (success, error) in
+                        dispatch_async(dispatch_get_main_queue(), {
+                            if let error = error  {
+                                print(error)
+                            } else {
+                                print("OK")
+                                let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
+                                self.navigationController!.presentViewController(rootViewController, animated: true, completion: nil)
+                                
+                            }
+                        })
+                    }
+                }
+            
             default:
                 print("error")
         }
@@ -121,7 +131,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
             middleView.alpha = 0
             bottomView.alpha = 0.75
             mapView.alpha = 1
-            topTextField.text = "Enter a Link to Share Here"
+            topTextField.text = shareLinkText
             topTextField.enabled = true
 //             = UIColor(red: (79/255), green: (148/255), blue: (205/255), alpha: 1)
             button.setTitle("Submit", forState: .Normal)
@@ -151,6 +161,10 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
         self.view.endEditing(true)
         if textField == middleTextField && middleTextField.text == "" {
             middleTextField.text = defaultMiddleTextFieldText
+        }
+        
+        if textField == topTextField && topTextField.text == "" {
+            topTextField.text = shareLinkText
         }
         return false
     }
