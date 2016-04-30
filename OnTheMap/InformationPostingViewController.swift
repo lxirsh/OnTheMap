@@ -153,6 +153,8 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     }
     
 
+    // MARK: Text Field Delegates
+    
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return true
     }
