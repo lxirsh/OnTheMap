@@ -62,7 +62,8 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
                     
             }
             case "Submit":
-                OTMClient.sharedInstance().postStudentLocation() { (success, error) in
+                let mediaURL = topTextField.text
+                OTMClient.sharedInstance().postStudentLocation(mediaURL!) { (success, error) in
                     dispatch_async(dispatch_get_main_queue(), {
                         if let error = error  {
                             print(error)
