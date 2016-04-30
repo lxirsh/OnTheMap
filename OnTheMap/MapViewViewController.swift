@@ -56,7 +56,22 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func addUserInfo(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("ShowInformationPostingView", sender: self)
+        if userIsAlreadyPinned() {
+            
+            let ac = UIAlertController(title: "", message: "User \"\(UdacityClient.sharedInstance().firstName) \(UdacityClient.sharedInstance().lastName)\" has already posted a location. Would you like to overwrite their location?", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "Overwrite", style: .Default, handler: { (action: UIAlertAction!) in
+                self.performSegueWithIdentifier("ShowInformationPostingView", sender: self)
+            }))
+            
+            ac.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+                return
+            }))
+            presentViewController(ac, animated: true, completion: nil)
+            print("User pinned")
+        } else {
+            performSegueWithIdentifier("ShowInformationPostingView", sender: self)
+            print("User not pinned")
+        }
     }
     
     
