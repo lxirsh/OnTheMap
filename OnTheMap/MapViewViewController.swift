@@ -55,6 +55,11 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         self.mapView.addAnnotations(annotations)
     }
     
+    @IBAction func addUserInfo(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("ShowInformationPostingView", sender: self)
+    }
+    
+    
     func userIsAlreadyPinned () -> Bool {
         for student in OTMClient.sharedInstance().locations {
             if student.uniqueKey == UdacityClient.sharedInstance().userID

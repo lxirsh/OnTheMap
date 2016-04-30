@@ -33,7 +33,6 @@ extension UdacityClient {
                 if let session = results[UdacityClient.JSONresponseKeys.Account] as? [String: AnyObject] {
                     if let user = session[UdacityClient.JSONresponseKeys.UserID] as? String {
                         UdacityClient.sharedInstance().userID = user
-//                        print(UdacityClient.sharedInstance().userID)
                         completionHandlerForGetSessionID(success: true, errorString: nil)
                     }
                     

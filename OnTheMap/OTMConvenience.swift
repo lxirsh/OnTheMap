@@ -73,7 +73,7 @@ extension OTMClient {
         
         let parameters = [String: AnyObject]()
         
-        let jsonBody = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"\(UdacityClient.URLKeys.UserID)\", \"\(OTMClient.JSONBodyKeys.FirstName)\": \"\(UdacityClient.sharedInstance().firstName!)\", \"\(OTMClient.JSONBodyKeys.LastName)\": \"\(UdacityClient.sharedInstance().lastName!)\",\"\(OTMClient.JSONBodyKeys.MapString)\": \"\(self.mapString!)\", \"\(OTMClient.JSONBodyKeys.MediaURL)\": \"https://udacity.com\",\"\(OTMClient.JSONBodyKeys.Latitude)\": \(self.latitude!), \"\(OTMClient.JSONBodyKeys.Longitude)\": \(self.longitude!)}"
+        let jsonBody = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"\(UdacityClient.sharedInstance().userID!)\", \"\(OTMClient.JSONBodyKeys.FirstName)\": \"\(UdacityClient.sharedInstance().firstName!)\", \"\(OTMClient.JSONBodyKeys.LastName)\": \"\(UdacityClient.sharedInstance().lastName!)\",\"\(OTMClient.JSONBodyKeys.MapString)\": \"\(self.mapString!)\", \"\(OTMClient.JSONBodyKeys.MediaURL)\": \"https://udacity.com\",\"\(OTMClient.JSONBodyKeys.Latitude)\": \(self.latitude!), \"\(OTMClient.JSONBodyKeys.Longitude)\": \(self.longitude!)}"
         
         taskForPOSTMethod(OTMClient.Methods.StudentLocations, parameters: parameters, jsonBody: jsonBody) { (results, error) in
             

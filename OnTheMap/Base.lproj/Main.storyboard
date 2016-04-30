@@ -318,12 +318,17 @@
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="BEM-ux-MzV"/>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="t9h-Ta-9d3"/>
-                            <barButtonItem systemItem="add" id="vuJ-1y-KQd"/>
+                            <barButtonItem systemItem="add" id="vuJ-1y-KQd">
+                                <connections>
+                                    <action selector="addUserInfo:" destination="mO2-EK-xkl" id="kkZ-wA-zzD"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="L4E-qg-H3Y" id="Vp4-2D-w1V"/>
+                        <segue destination="JTe-71-SZ0" kind="presentation" identifier="ShowInformationPostingView" id="aMt-26-3dR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ton-MQ-kcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
