@@ -19,6 +19,8 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     
+    
+    let defaultMiddleTextFieldText = "Enter your location here."
     var searchString: String?
     
     enum UIState: String {
@@ -29,6 +31,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
         super.viewDidLoad()
         
         self.middleTextField.delegate = self
+        self.middleTextField.text = defaultMiddleTextFieldText
 
         configureUIForState(.Initial)
         
@@ -49,8 +52,13 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
         
         switch button.titleLabel!.text! {
             case "Find on the map":
-                configureUIForState(.Searching)
-                if middleTextField.text != nil {
+                if middleTextField.text != "" || middleTextField.text != defaultMiddleTextFieldText {
+                    let ac = UIAlertController(title: "", message: "Must enter a location", preferredStyle: .Alert)
+                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                    presentViewController(ac, animated: true, completion: nil)
+                    
+                } else {
+                    configureUIForState(.Searching)
                     searchString = middleTextField.text
                     OTMClient.sharedInstance().getUserLocation(searchString!) { (success, error) in
                         dispatch_async(dispatch_get_main_queue(), {
@@ -61,7 +69,6 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                             }
                         })
                     }
-                    
             }
             case "Submit":
                 let mediaURL = topTextField.text
@@ -143,7 +150,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         if textField == middleTextField && middleTextField.text == "" {
-            middleTextField.text = "Enter your location here"
+            middleTextField.text = defaultMiddleTextFieldText
         }
         return false
     }
