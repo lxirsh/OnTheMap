@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class InformationPostingViewController: UIViewController, MKMapViewDelegate{
+class InformationPostingViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var middleView: UIView!
@@ -27,6 +27,8 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.middleTextField.delegate = self
 
         configureUIForState(.Initial)
         
@@ -134,6 +136,18 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate{
     }
     
 
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        if textField == middleTextField && middleTextField.text == "" {
+            middleTextField.text = "Enter your location here"
+        }
+        return false
+    }
+    
     /*
     // MARK: - Navigation
 
