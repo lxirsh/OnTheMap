@@ -21,11 +21,14 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         OTMClient.sharedInstance().getStudentLocations() { (success, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
-                    print(OTMClient.sharedInstance().locations)
+                    print("Number of locations: \(OTMClient.sharedInstance().locations.count)")
                     self.loadDataToMap()
                 } else {
                     if let error = error {
                         print(error)
+                        let ac = UIAlertController(title: "", message: "Could not load student data", preferredStyle: .Alert)
+                        ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                        self.presentViewController(ac, animated: true, completion: nil)
                     }
                 }
 
