@@ -41,7 +41,6 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         var annotations = [MKPointAnnotation]()
         
         for studentInfo in OTMClient.sharedInstance().locations {
-//            print(studentInfo.firstName)
             let lat = CLLocationDegrees(studentInfo.latitude)
             let long = CLLocationDegrees(studentInfo.longitude)
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
@@ -59,21 +58,31 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func addUserInfo(sender: UIBarButtonItem) {
-        if userIsAlreadyPinned() {
+        OTMClient.sharedInstance().queryStudentLocation() { (success, error) in
             
-            let ac = UIAlertController(title: "", message: "User \"\(UdacityClient.sharedInstance().firstName) \(UdacityClient.sharedInstance().lastName)\" has already posted a location. Would you like to overwrite their location?", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "Overwrite", style: .Default, handler: { (action: UIAlertAction!) in
-                self.performSegueWithIdentifier("ShowInformationPostingView", sender: self)
-            }))
+            dispatch_async(dispatch_get_main_queue(), {
+                if success {
+                    self.performSegueWithIdentifier("ShowInformationPostingView", sender: self)
+                    print("User not pinned")
+                } else {
+                    if error == "Already pinned" {
+                        let ac = UIAlertController(title: "", message: "User \"\(UdacityClient.sharedInstance().firstName) \(UdacityClient.sharedInstance().lastName)\" has already posted a location. Would you like to overwrite their location?", preferredStyle: .Alert)
+                        ac.addAction(UIAlertAction(title: "Overwrite", style: .Default, handler: { (action: UIAlertAction!) in
+                            self.performSegueWithIdentifier("ShowInformationPostingView", sender: self)
+                        }))
+                        
+                        ac.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+                            return
+                        }))
+                        self.presentViewController(ac, animated: true, completion: nil)
+                        print("User pinned")
+                    } else {
+                        // TODO: Add alert
+                        print("error")
+                    }
+                }
+            })
             
-            ac.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
-                return
-            }))
-            presentViewController(ac, animated: true, completion: nil)
-            print("User pinned")
-        } else {
-            performSegueWithIdentifier("ShowInformationPostingView", sender: self)
-            print("User not pinned")
         }
     }
     

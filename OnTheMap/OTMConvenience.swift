@@ -35,11 +35,44 @@ extension OTMClient {
         }
     }
     
-    func queryStudentLocation(completionHandlerForQueryStudentLocation: (sucess: Bool?, errorString: String?) -> Void) {
+    // Successful only if the user has not already pinned a location
+    func queryStudentLocation(completionHandlerForQueryStudentLocation: (success: Bool, errorString: String?) -> Void) {
+        
+        let query = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"\(UdacityClient.sharedInstance().userID!)\"}"
+//        let query = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"1234\"}"
         
         let parameters = [
-            "where" : NSURLQueryItem(name: "fjfjhfg", value: "hfjfgj")
+            "where" : query
         ]
+        
+        taskForGETMethod(OTMClient.Methods.StudentLocations, parameters: parameters) { (results, error) in
+            
+            if let error = error {
+                // TODO: user alert
+                print(error.localizedDescription)
+            } else {
+                print("JSON: \(results)")
+                if let results = results as? [String: AnyObject] {
+                    if let resultsArray = results["results"] { //as? [AnyObject] {
+                        print(resultsArray.count)
+                        if resultsArray.count > 0 {
+                            if let dict = resultsArray[0] {
+                                print("objectId: \(dict["objectId"])")
+                            }
+                            completionHandlerForQueryStudentLocation(success: false, errorString: "Already pinned")
+                        } else {
+                            completionHandlerForQueryStudentLocation(success: true, errorString: nil)
+                        }
+                    }
+                    
+                } else {
+                    print(results)
+                    completionHandlerForQueryStudentLocation(success: false, errorString: "Could not parse results")
+                }
+                
+            
+            }
+        }
     }
     
     // Get the user's inputed location.
