@@ -23,6 +23,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     let defaultMiddleTextFieldText = "Enter your location here."
     let shareLinkText = "Enter a Link to Share Here."
     var searchString: String?
+    var pinned: Bool?
     
     enum UIState: String {
         case Initial, Searching, LocationView
@@ -36,6 +37,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
         self.middleTextField.text = defaultMiddleTextFieldText
 
         configureUIForState(.Initial)
+        print("Pinned: \(self.pinned!)")
         
         UdacityClient.sharedInstance().getPublicUserData(UdacityClient.sharedInstance().userID!) { (success, error) in
             dispatch_async(dispatch_get_main_queue(), {

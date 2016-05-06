@@ -62,13 +62,19 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
             
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
-                    self.performSegueWithIdentifier("ShowInformationPostingView", sender: self)
+                    let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
+                    destinationVC.pinned = false
                     print("User not pinned")
+                    self.presentViewController(destinationVC, animated: true, completion: nil)
+
                 } else {
                     if error == "Already pinned" {
                         let ac = UIAlertController(title: "", message: "User \"\(UdacityClient.sharedInstance().firstName) \(UdacityClient.sharedInstance().lastName)\" has already posted a location. Would you like to overwrite their location?", preferredStyle: .Alert)
                         ac.addAction(UIAlertAction(title: "Overwrite", style: .Default, handler: { (action: UIAlertAction!) in
-                            self.performSegueWithIdentifier("ShowInformationPostingView", sender: self)
+                            let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
+                            destinationVC.pinned = true
+                            self.presentViewController(destinationVC, animated: true, completion: nil)
+
                         }))
                         
                         ac.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
@@ -132,14 +138,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    // MARK: - Navigation
 
 }

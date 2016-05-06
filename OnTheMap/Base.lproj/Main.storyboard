@@ -168,7 +168,7 @@
         <!--Information Posting View Controller-->
         <scene sceneID="64w-pk-MtB">
             <objects>
-                <viewController storyboardIdentifier="PostInformationViewController" id="bMd-Lj-wf8" customClass="InformationPostingViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InformationPostingViewController" id="bMd-Lj-wf8" customClass="InformationPostingViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cQc-p5-6wd"/>
                         <viewControllerLayoutGuide type="bottom" id="5LI-sv-MQA"/>
@@ -328,7 +328,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="L4E-qg-H3Y" id="Vp4-2D-w1V"/>
-                        <segue destination="JTe-71-SZ0" kind="presentation" identifier="ShowInformationPostingView" id="aMt-26-3dR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ton-MQ-kcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -395,7 +394,7 @@
         <!--Navigation Controller-->
         <scene sceneID="z6q-4U-fcp">
             <objects>
-                <navigationController storyboardIdentifier="PostInformationNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="JTe-71-SZ0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="InformationPostingNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="JTe-71-SZ0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DBg-JS-2K4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

@@ -39,7 +39,7 @@ extension OTMClient {
     func queryStudentLocation(completionHandlerForQueryStudentLocation: (success: Bool, errorString: String?) -> Void) {
         
         let query = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"\(UdacityClient.sharedInstance().userID!)\"}"
-//        let query = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"1234\"}"
+//        let query = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"6666666666\"}"
         
         let parameters = [
             "where" : query
