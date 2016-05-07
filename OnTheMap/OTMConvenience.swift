@@ -57,7 +57,13 @@ extension OTMClient {
                         print(resultsArray.count)
                         if resultsArray.count > 0 {
                             if let dict = resultsArray[0] {
+                                guard let ID = dict["objectId"] as? String else {
+                                    completionHandlerForQueryStudentLocation(success: false, errorString: "Could not find the user's ID")
+                                    return
+                                }
                                 print("objectId: \(dict["objectId"])")
+                                self.objectId = ID
+//                                OTMClient.sharedInstance().objectId = dict["objectId"]
                             }
                             completionHandlerForQueryStudentLocation(success: false, errorString: "Already pinned")
                         } else {
@@ -127,7 +133,8 @@ extension OTMClient {
         
         let parameters = [String: AnyObject]()
         var mutableMethod: String = Methods.UpdateLocation
-        mutableMethod = substituteKeyInMethod(mutableMethod, key: URLKeys.UniqueKey, value: UdacityClient.sharedInstance().userID!)!
+        mutableMethod = substituteKeyInMethod(mutableMethod, key: URLKeys.ObjectId, value: objectId!)!
+        print("uniqueKey: \(UdacityClient.sharedInstance().userID!)")
         
         let jsonBody = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"\(UdacityClient.sharedInstance().userID!)\", \"\(OTMClient.JSONBodyKeys.FirstName)\": \"\(UdacityClient.sharedInstance().firstName!)\", \"\(OTMClient.JSONBodyKeys.LastName)\": \"\(UdacityClient.sharedInstance().lastName!)\",\"\(OTMClient.JSONBodyKeys.MapString)\": \"\(self.mapString!)\", \"\(OTMClient.JSONBodyKeys.MediaURL)\": \"\(mediaURL)\",\"\(OTMClient.JSONBodyKeys.Latitude)\": \(self.latitude!), \"\(OTMClient.JSONBodyKeys.Longitude)\": \(self.longitude!)}"
         

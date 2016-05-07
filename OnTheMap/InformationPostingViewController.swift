@@ -82,18 +82,33 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
 
                 } else {
                     let mediaURL = topTextField.text
-                    OTMClient.sharedInstance().postStudentLocation(mediaURL!) { (success, error) in
-                        dispatch_async(dispatch_get_main_queue(), {
-                            if let error = error  {
-                                print(error)
-                            } else {
-                                print("OK")
-                                let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
-                                self.navigationController!.presentViewController(rootViewController, animated: true, completion: nil)
-                                
-                            }
-                        })
+                    // Has the user already pinned a location?
+                    if pinned == true {
+                        OTMClient.sharedInstance().updateStudentLocation(mediaURL!) { (success, error) in
+                            dispatch_async(dispatch_get_main_queue(), {
+                                if let error = error  {
+                                    print(error)
+                                } else {
+                                    let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
+                                    self.presentViewController(rootViewController, animated: true, completion: nil)
+                                    
+                                }
+                            })
+                        }
+                    } else {
+                        OTMClient.sharedInstance().postStudentLocation(mediaURL!) { (success, error) in
+                            dispatch_async(dispatch_get_main_queue(), {
+                                if let error = error  {
+                                    print(error)
+                                } else {
+                                    let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
+                                    self.presentViewController(rootViewController, animated: true, completion: nil)
+                                    
+                                }
+                            })
+                        }
                     }
+
                 }
             
             default:

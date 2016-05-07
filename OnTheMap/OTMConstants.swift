@@ -26,13 +26,13 @@ extension OTMClient {
     struct Methods {
         
         static let StudentLocations = "/classes/StudentLocation"
-        static let UpdateLocation = "/classes/StudentLocation/{uniqueKey}"
+        static let UpdateLocation = "/classes/StudentLocation/{objectId}"
     }
     // MARK: URL Keys
     struct URLKeys {
         static let ParseAppIDKey = "X-Parse-Application-Id"
         static let RESTAPIKey = "X-Parse-REST-API-Key"
-        static let UniqueKey = "uniqueKey"
+        static let ObjectId = "objectId"
         
     }
     
