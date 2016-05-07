@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -315,7 +315,11 @@
                         <barButtonItem title="Item" id="GO7-sl-dYt"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="On The Map" id="vij-Ux-gYc">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="BEM-ux-MzV"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="BEM-ux-MzV">
+                            <connections>
+                                <action selector="logout:" destination="mO2-EK-xkl" id="L9o-0Q-aAW"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="t9h-Ta-9d3"/>
                             <barButtonItem systemItem="add" id="vuJ-1y-KQd">

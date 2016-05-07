@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Foundation
 
 class MapViewViewController: UIViewController, MKMapViewDelegate {
 
@@ -103,6 +104,11 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         return false
     }
         
+    @IBAction func logout(sender: UIBarButtonItem) {
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") 
+        self.presentViewController(vc, animated: true, completion: nil)
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
