@@ -76,8 +76,6 @@ class OTMClient: NSObject {
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtention: method))
         request.HTTPMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Accept")
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue(OTMClient.Constants.ParseAppID, forHTTPHeaderField: OTMClient.URLKeys.ParseAppIDKey)
         request.addValue(OTMClient.Constants.RESTAPI, forHTTPHeaderField: OTMClient.URLKeys.RESTAPIKey)
         request.HTTPBody = jsonBody.dataUsingEncoding(NSUTF8StringEncoding)
@@ -119,6 +117,56 @@ class OTMClient: NSObject {
         
         return task
     }
+    
+    func taskForPUTMethod(method: String, var parameters: [String: AnyObject], jsonBody: String, completionHandlerForPUT: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        // Build the URL and configure the request
+        let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtention: method))
+        request.HTTPMethod = "PUT"
+        //        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        //        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(OTMClient.Constants.ParseAppID, forHTTPHeaderField: OTMClient.URLKeys.ParseAppIDKey)
+        request.addValue(OTMClient.Constants.RESTAPI, forHTTPHeaderField: OTMClient.URLKeys.RESTAPIKey)
+        request.HTTPBody = jsonBody.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        // Make the request
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            
+            func sendError(error: String) {
+                print("\(error)\n")
+                let userInfo = [NSLocalizedDescriptionKey: error]
+                completionHandlerForPUT(result: nil, error: NSError(domain: "taskForPOSTMethod", code: 1, userInfo: userInfo))
+                
+            }
+            
+            // GUARD: Was there an error?
+            guard (error == nil) else {
+                sendError("There was an error with your request: \(error)")
+                return
+            }
+            
+            // GUARD: Did we get a successful 2XX response?
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                sendError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            // GURAD: Was there any data returned?
+            guard let data = data else {
+                sendError("No data was returned by the request!")
+                return
+            }
+            
+            // Parse the data and use it (in the compltetion handler).
+            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForPUT)
+        }
+        
+        // Start the request
+        task.resume()
+        
+        return task
+    }
+
     
     // MARK: Helpers
     

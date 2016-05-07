@@ -112,7 +112,7 @@ extension OTMClient {
             
             if let error = error {
                 print("\(error.localizedDescription)")
-                completionHandlerForPostStudentLocation(success: false, errorString: "Could not update new location")
+                completionHandlerForPostStudentLocation(success: false, errorString: "Could not add location")
             } else {
                 print(results)
                 completionHandlerForPostStudentLocation(success: true, errorString: nil)
@@ -123,4 +123,27 @@ extension OTMClient {
         
     }
     
+    func updateStudentLocation(mediaURL: String, completionHandlerForUpdatetStudentLocation: (success: Bool?, errorString: String?) -> Void) {
+        
+        let parameters = [String: AnyObject]()
+        var mutableMethod: String = Methods.UpdateLocation
+        mutableMethod = substituteKeyInMethod(mutableMethod, key: URLKeys.UniqueKey, value: UdacityClient.sharedInstance().userID!)!
+        
+        let jsonBody = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"\(UdacityClient.sharedInstance().userID!)\", \"\(OTMClient.JSONBodyKeys.FirstName)\": \"\(UdacityClient.sharedInstance().firstName!)\", \"\(OTMClient.JSONBodyKeys.LastName)\": \"\(UdacityClient.sharedInstance().lastName!)\",\"\(OTMClient.JSONBodyKeys.MapString)\": \"\(self.mapString!)\", \"\(OTMClient.JSONBodyKeys.MediaURL)\": \"\(mediaURL)\",\"\(OTMClient.JSONBodyKeys.Latitude)\": \(self.latitude!), \"\(OTMClient.JSONBodyKeys.Longitude)\": \(self.longitude!)}"
+        
+        taskForPUTMethod(mutableMethod, parameters: parameters, jsonBody: jsonBody) { (results, error) in
+            
+            if let error = error {
+                print("\(error.localizedDescription)")
+                completionHandlerForUpdatetStudentLocation(success: false, errorString: "Could not update new location")
+            } else {
+                print(results)
+                completionHandlerForUpdatetStudentLocation(success: true, errorString: nil)
+            }
+            
+        }
+        
+        
+    }
+
 }
