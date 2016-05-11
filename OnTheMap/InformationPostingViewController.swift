@@ -35,7 +35,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
         self.topTextField.delegate = self
         self.middleTextField.delegate = self
         self.middleTextField.text = defaultMiddleTextFieldText
-
+        
         configureUIForState(.Initial)
         print("Pinned: \(self.pinned!)")
         
@@ -50,6 +50,10 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                 }
             })
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
     }
     
     @IBAction func butonTouched(sender: AnyObject) {
@@ -164,6 +168,11 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
         }
     }
 
+    @IBAction func cancel(sender: UIButton) {
+        let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
+        self.presentViewController(rootViewController, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

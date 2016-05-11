@@ -93,17 +93,6 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    
-    func userIsAlreadyPinned () -> Bool {
-        for student in OTMClient.sharedInstance().locations {
-            if student.uniqueKey == UdacityClient.sharedInstance().userID
-            {
-                return true
-            }
-        }
-        return false
-    }
-        
     @IBAction func logout(sender: UIBarButtonItem) {
         let vc = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") 
         self.presentViewController(vc, animated: true, completion: nil)

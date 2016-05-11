@@ -34,6 +34,48 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
         return cell
     }
     
+    @IBAction func addUserInfo(sender: UIBarButtonItem) {
+        OTMClient.sharedInstance().queryStudentLocation() { (success, error) in
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                if success {
+                    let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
+                    destinationVC.pinned = false
+                    print("User not pinned")
+                    self.presentViewController(destinationVC, animated: true, completion: nil)
+                    
+                } else {
+                    if error == "Already pinned" {
+                        let ac = UIAlertController(title: "", message: "User \"\(UdacityClient.sharedInstance().firstName) \(UdacityClient.sharedInstance().lastName)\" has already posted a location. Would you like to overwrite their location?", preferredStyle: .Alert)
+                        ac.addAction(UIAlertAction(title: "Overwrite", style: .Default, handler: { (action: UIAlertAction!) in
+                            let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
+                            destinationVC.pinned = true
+                            self.presentViewController(destinationVC, animated: true, completion: nil)
+                            
+                        }))
+                        
+                        ac.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+                            return
+                        }))
+                        self.presentViewController(ac, animated: true, completion: nil)
+                        print("User pinned")
+                    } else {
+                        // TODO: Add alert
+                        print("error")
+                    }
+                }
+            })
+            
+        }
+    }
+    
+    @IBAction func logout(sender: UIBarButtonItem) {
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController")
+        self.presentViewController(vc, animated: true, completion: nil)
+        
+    }
+
+    
     // MARK: Navigation
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

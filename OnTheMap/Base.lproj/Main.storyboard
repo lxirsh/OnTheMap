@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -154,10 +154,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="f0A-js-3DS">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="lrX-EC-c00"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="lrX-EC-c00">
+                            <connections>
+                                <action selector="logout:" destination="tho-xh-KTU" id="30Z-NH-MLv"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="UMa-jI-05J"/>
-                            <barButtonItem systemItem="add" id="HrI-0W-0o9"/>
+                            <barButtonItem systemItem="add" id="HrI-0W-0o9">
+                                <connections>
+                                    <action selector="addUserInfo:" destination="tho-xh-KTU" id="Yrq-5P-2cV"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
@@ -177,13 +185,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="euP-w8-rTZ">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="euP-w8-rTZ">
                                 <rect key="frame" x="0.0" y="203" width="600" height="397"/>
                                 <connections>
                                     <outlet property="delegate" destination="bMd-Lj-wf8" id="n7f-8N-Ny3"/>
                                 </connections>
                             </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Where are you studying today?" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cl9-1A-Ig1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Where are you studying today?" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cl9-1A-Ig1">
                                 <rect key="frame" x="20" y="72" width="560" height="123"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="123" id="Sbm-Ic-Pf7"/>
@@ -216,7 +224,7 @@
                                     <constraint firstItem="BM2-gM-591" firstAttribute="centerX" secondItem="afR-k2-GnV" secondAttribute="centerX" id="onu-tX-G5h"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXP-RP-nLY">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXP-RP-nLY">
                                 <rect key="frame" x="0.0" y="195" width="600" height="270"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your location here." textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="82Y-Zv-PfG">
@@ -237,6 +245,14 @@
                                     <constraint firstItem="82Y-Zv-PfG" firstAttribute="top" secondItem="dXP-RP-nLY" secondAttribute="top" constant="18" id="cSb-ib-xRC"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agx-Rv-ZVR">
+                                <rect key="frame" x="524" y="28" width="56" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="bMd-Lj-wf8" eventType="touchUpInside" id="Sam-NR-Ae0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -256,7 +272,9 @@
                             <constraint firstItem="afR-k2-GnV" firstAttribute="leading" secondItem="XLC-0W-As5" secondAttribute="leadingMargin" constant="-20" id="Tu7-jU-HQU"/>
                             <constraint firstItem="afR-k2-GnV" firstAttribute="trailing" secondItem="euP-w8-rTZ" secondAttribute="trailing" id="Wp6-2E-BLW"/>
                             <constraint firstItem="cl9-1A-Ig1" firstAttribute="centerX" secondItem="dXP-RP-nLY" secondAttribute="centerX" id="Zf7-JE-NBn"/>
+                            <constraint firstItem="Agx-Rv-ZVR" firstAttribute="trailing" secondItem="cl9-1A-Ig1" secondAttribute="trailing" id="eCT-qp-7vw"/>
                             <constraint firstItem="dXP-RP-nLY" firstAttribute="leading" secondItem="XLC-0W-As5" secondAttribute="leadingMargin" constant="-20" id="ePg-p7-3Ps"/>
+                            <constraint firstItem="Agx-Rv-ZVR" firstAttribute="top" secondItem="cQc-p5-6wd" secondAttribute="bottom" constant="8" symbolic="YES" id="rVe-OI-p1w"/>
                             <constraint firstAttribute="bottom" secondItem="afR-k2-GnV" secondAttribute="bottom" constant="20" symbolic="YES" id="sGz-Uc-PYR"/>
                             <constraint firstItem="afR-k2-GnV" firstAttribute="trailing" secondItem="XLC-0W-As5" secondAttribute="trailingMargin" constant="20" id="tTv-3b-Nw8"/>
                             <constraint firstItem="afR-k2-GnV" firstAttribute="leading" secondItem="euP-w8-rTZ" secondAttribute="leading" id="vmm-4P-B7K"/>
@@ -273,7 +291,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="AIg-39-Wfh"/>
+                    <navigationItem key="navigationItem" id="AIg-39-Wfh">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="QNn-VC-4NJ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomView" destination="afR-k2-GnV" id="EmB-gH-NPj"/>
                         <outlet property="button" destination="BM2-gM-591" id="FeC-1G-Ykj"/>
@@ -285,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ok5-Uq-O13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2831" y="686"/>
+            <point key="canvasLocation" x="2874" y="643"/>
         </scene>
         <!--On The Map-->
         <scene sceneID="KlI-wk-0Kj">
@@ -398,13 +418,17 @@
         <!--Navigation Controller-->
         <scene sceneID="z6q-4U-fcp">
             <objects>
-                <navigationController storyboardIdentifier="InformationPostingNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="JTe-71-SZ0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="InformationPostingNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="JTe-71-SZ0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DBg-JS-2K4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ZjQ-LR-BoR">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="bMd-Lj-wf8" kind="relationship" relationship="rootViewController" id="RXr-OF-aqB"/>
                     </connections>
