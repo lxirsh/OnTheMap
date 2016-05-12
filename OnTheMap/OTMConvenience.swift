@@ -17,7 +17,8 @@ extension OTMClient {
     // Get the locations for students who have previously used the app from the Parse API
     func getStudentLocations(completionHandlerForGetStudentLocations:(success: Bool, errorString: String?) -> Void) {
         
-        let parameters = [String: AnyObject]()
+        let parameters = ["-order": "updatedAt",
+                          "limit": "100"]
         
         taskForGETMethod(OTMClient.Methods.StudentLocations, parameters: parameters) { (results, error) in
             

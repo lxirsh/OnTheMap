@@ -54,6 +54,8 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
             annotation.subtitle = mediaUrl
             
             annotations.append(annotation)
+            
+            print(studentInfo.updatedAt)
         }
         self.mapView.addAnnotations(annotations)
     }

@@ -19,6 +19,7 @@ struct StudentInformation {
     let mapString: String
     let mediaURL: String
     let uniqueKey: String
+    let updatedAt: String
     
     // MARK: Initializer
     
@@ -30,6 +31,7 @@ struct StudentInformation {
         mapString = dictionary[OTMClient.JSONResponseKeys.mapString] as! String
         mediaURL = dictionary[OTMClient.JSONResponseKeys.mediaURL] as! String
         uniqueKey = dictionary[OTMClient.JSONResponseKeys.uniqueKey] as! String
+        updatedAt = dictionary["updatedAt"] as! String
     }
     
     static func studentInformationFromResults(results: [[String: AnyObject]]) -> [StudentInformation] {
