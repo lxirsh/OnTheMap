@@ -66,7 +66,6 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                     presentViewController(ac, animated: true, completion: nil)
                     
                 } else {
-                    configureUIForState(.Searching)
                     searchString = middleTextField.text
                     OTMClient.sharedInstance().getUserLocation(searchString!) { (success, error) in
                         dispatch_async(dispatch_get_main_queue(), {
@@ -75,6 +74,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                                 ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                                 self.presentViewController(ac, animated: true, completion: nil)
                             } else {
+                                self.configureUIForState(.Searching)
                                 self.showUserLocation()
                             }
                         })
