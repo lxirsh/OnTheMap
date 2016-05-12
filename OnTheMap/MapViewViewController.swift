@@ -106,13 +106,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
                     print(error)
                 }
             })
-            
         }
-        
-        
-//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") 
-//        self.presentViewController(vc, animated: true, completion: nil)
-//        
     }
 
     override func didReceiveMemoryWarning() {
