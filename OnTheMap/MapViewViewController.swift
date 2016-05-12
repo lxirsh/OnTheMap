@@ -94,9 +94,25 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func logout(sender: UIBarButtonItem) {
-        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") 
-        self.presentViewController(vc, animated: true, completion: nil)
+        UdacityClient.sharedInstance().deleteSession() { (success, error) in
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                if success {
+                    let vc = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController")
+                    self.presentViewController(vc, animated: true, completion: nil)
+                    
+                } else {
+                    // Add an alert?
+                    print(error)
+                }
+            })
+            
+        }
         
+        
+//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") 
+//        self.presentViewController(vc, animated: true, completion: nil)
+//        
     }
 
     override func didReceiveMemoryWarning() {

@@ -76,6 +76,58 @@ class UdacityClient: NSObject {
     }
     
     // TODO: DELETE Method (for logging out of a session)
+    func taskForDELETEMethod(method: String, var parameters: [String: AnyObject], completionHandlerForDELETE: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        // Build the URL and configure the request
+        let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtention: method))
+        request.HTTPMethod = "DELETE"
+        
+        var xsrfCookie: NSHTTPCookie? = nil
+        let sharedCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+
+        // Make the request
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            
+            func sendError(error: String) {
+                print(error)
+                let userInfo = [NSLocalizedDescriptionKey: error]
+                completionHandlerForDELETE(result: nil, error: NSError(domain: "taskForDELETEMethod", code: 1, userInfo: userInfo))
+            }
+            
+            // GUARD: Was there an error?
+            guard (error == nil) else {
+                sendError("There was an error with your request: \(error)")
+                return
+            }
+            
+            // GUARD: Did we get a successful 2XX response?
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                sendError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            // GUARD: Was there any data returned?
+            guard let data = data else {
+                sendError("No data was returned by the request!")
+                return
+            }
+            
+            // Parse the data and use the data (in completion handler)
+            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForDELETE)
+            
+        }
+        
+        // Start the request
+        task.resume()
+        
+        return task
+    }
     
     // MARK: Post
     

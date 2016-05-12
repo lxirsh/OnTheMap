@@ -79,6 +79,21 @@ extension UdacityClient {
         }
     }
     
+    // Log out from Udacity session
+    func deleteSession(completionHandlerForDeleteSession: (success: Bool, errorString: String?) -> Void) {
+        
+        let parameters = [String: AnyObject]()
+        var mutableMethod = UdacityClient.Methods.Session
+        
+        taskForDELETEMethod(mutableMethod, parameters: parameters) { (results, error) in
+            if let error = error {
+                completionHandlerForDeleteSession(success: false, errorString: "Could not delete session")
+            } else {
+                completionHandlerForDeleteSession(success: true, errorString: nil)
+                
+            }
+        }
+    }
     
     
 }
