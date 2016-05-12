@@ -71,7 +71,9 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                     OTMClient.sharedInstance().getUserLocation(searchString!) { (success, error) in
                         dispatch_async(dispatch_get_main_queue(), {
                             if let error = error  {
-                                print(error)
+                                let ac = UIAlertController(title: "", message: "Unable to find location", preferredStyle: .Alert)
+                                ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                                self.presentViewController(ac, animated: true, completion: nil)
                             } else {
                                 self.showUserLocation()
                             }
@@ -91,7 +93,9 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                         OTMClient.sharedInstance().updateStudentLocation(mediaURL!) { (success, error) in
                             dispatch_async(dispatch_get_main_queue(), {
                                 if let error = error  {
-                                    print(error)
+                                    let ac = UIAlertController(title: "", message: "Unable to update location", preferredStyle: .Alert)
+                                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                                    self.presentViewController(ac, animated: true, completion: nil)
                                 } else {
                                     let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
                                     self.presentViewController(rootViewController, animated: true, completion: nil)
@@ -103,7 +107,10 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                         OTMClient.sharedInstance().postStudentLocation(mediaURL!) { (success, error) in
                             dispatch_async(dispatch_get_main_queue(), {
                                 if let error = error  {
-                                    print(error)
+                                    let ac = UIAlertController(title: "", message: "Unable to update location", preferredStyle: .Alert)
+                                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                                    self.presentViewController(ac, animated: true, completion: nil)
+
                                 } else {
                                     let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
                                     self.presentViewController(rootViewController, animated: true, completion: nil)
