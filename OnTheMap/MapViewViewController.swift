@@ -19,6 +19,26 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         
         mapView.delegate = self
 
+        // Test to see if values can be accessed
+        print("Map View First Name: \(UdacityClient.sharedInstance().firstName)")
+        print("Map View Session ID: \(UdacityClient.sharedInstance().sessionID)")
+
+        // Set the user's first and last name so that they can be accessed for an alert if needed
+        UdacityClient.sharedInstance().getPublicUserData(UdacityClient.sharedInstance().userID!) { (success, error) in
+            dispatch_async(dispatch_get_main_queue(), {
+                if let error = error  {
+                    // TODO: add an alert
+                    print(error)
+                    UdacityClient.sharedInstance().firstName = "First"
+                    UdacityClient.sharedInstance().lastName = "Last"
+                } else {
+                    print("ok")
+                    print(UdacityClient.sharedInstance().firstName)
+                    print(UdacityClient.sharedInstance().lastName)
+                }
+            })
+        }
+        
         OTMClient.sharedInstance().getStudentLocations() { (success, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
@@ -70,7 +90,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
 
                 } else {
                     if error == "Already pinned" {
-                        let ac = UIAlertController(title: "", message: "User \"\(UdacityClient.sharedInstance().firstName) \(UdacityClient.sharedInstance().lastName)\" has already posted a location. Would you like to overwrite their location?", preferredStyle: .Alert)
+                        let ac = UIAlertController(title: "", message: "User \"\(UdacityClient.sharedInstance().firstName!) \(UdacityClient.sharedInstance().lastName!)\" has already posted a location. Would you like to overwrite their location?", preferredStyle: .Alert)
                         ac.addAction(UIAlertAction(title: "Overwrite", style: .Default, handler: { (action: UIAlertAction!) in
                             let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
                             destinationVC.pinned = true

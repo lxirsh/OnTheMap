@@ -40,18 +40,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
         
         configureUIForState(.Initial)
         print("Pinned: \(self.pinned!)")
-        
-        UdacityClient.sharedInstance().getPublicUserData(UdacityClient.sharedInstance().userID!) { (success, error) in
-            dispatch_async(dispatch_get_main_queue(), {
-                if let error = error  {
-                    print(error)
-                } else {
-                    print("ok")
-                    print(UdacityClient.sharedInstance().firstName)
-                    print(UdacityClient.sharedInstance().lastName)
-                }
-            })
-        }
+       
     }
     
     override func viewWillAppear(animated: Bool) {
