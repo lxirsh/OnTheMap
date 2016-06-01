@@ -13,7 +13,7 @@ import Foundation
 class MapViewViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,9 +54,6 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
             annotation.subtitle = mediaUrl
             
             annotations.append(annotation)
-            print(studentInfo.firstName)
-            print(studentInfo.lastName)
-            print(studentInfo.updatedAt)
         }
         self.mapView.addAnnotations(annotations)
     }
@@ -65,7 +62,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         OTMClient.sharedInstance().queryStudentLocation() { (success, error) in
             
             dispatch_async(dispatch_get_main_queue(), {
-                if success {
+                if success { // User has not already pinned a location
                     let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
                     destinationVC.pinned = false
                     print("User not pinned")

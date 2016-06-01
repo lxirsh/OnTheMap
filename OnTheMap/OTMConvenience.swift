@@ -17,8 +17,8 @@ extension OTMClient {
     // Get the locations for students who have previously used the app from the Parse API
     func getStudentLocations(completionHandlerForGetStudentLocations:(success: Bool, errorString: String?) -> Void) {
         
-        let parameters = ["-order": "updatedAt",
-                          "limit": "100"]
+        let parameters = [OTMClient.parameterKeys.ReverseOrder: OTMClient.paramaterValues.TimeUpdated,
+                          OTMClient.parameterKeys.Limit: OTMClient.paramaterValues.NumberOfObjectsToReturn]
         
         taskForGETMethod(OTMClient.Methods.StudentLocations, parameters: parameters) { (results, error) in
             
@@ -43,7 +43,7 @@ extension OTMClient {
 //        let query = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"6666666666\"}"
         
         let parameters = [
-            "where" : query
+            OTMClient.parameterKeys.Where : query
         ]
         
         taskForGETMethod(OTMClient.Methods.StudentLocations, parameters: parameters) { (results, error) in
@@ -54,7 +54,7 @@ extension OTMClient {
             } else {
                 print("JSON: \(results)")
                 if let results = results as? [String: AnyObject] {
-                    if let resultsArray = results["results"] { //as? [AnyObject] {
+                    if let resultsArray = results[OTMClient.JSONResponseKeys.studentList] { //as? [AnyObject] {
                         print(resultsArray.count)
                         if resultsArray.count > 0 {
                             if let dict = resultsArray[0] {

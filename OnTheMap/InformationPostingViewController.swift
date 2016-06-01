@@ -18,6 +18,8 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     @IBOutlet weak var middleTextField: UITextField!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var submitButton: UIButton!
+    // TODO: Change color of text in cancel button (to gray) when a link is to be shared
+
     
     
     let defaultMiddleTextFieldText = "Enter your location here."
