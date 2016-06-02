@@ -19,10 +19,6 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         
         mapView.delegate = self
 
-        // Test to see if values can be accessed
-        print("Map View First Name: \(UdacityClient.sharedInstance().firstName)")
-        print("Map View Session ID: \(UdacityClient.sharedInstance().sessionID)")
-
         // Set the user's first and last name so that they can be accessed for an alert if needed
         UdacityClient.sharedInstance().getPublicUserData(UdacityClient.sharedInstance().userID!) { (success, error) in
             dispatch_async(dispatch_get_main_queue(), {

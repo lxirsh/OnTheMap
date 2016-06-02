@@ -297,6 +297,7 @@
                     <connections>
                         <outlet property="bottomView" destination="afR-k2-GnV" id="EmB-gH-NPj"/>
                         <outlet property="button" destination="BM2-gM-591" id="FeC-1G-Ykj"/>
+                        <outlet property="cancelButton" destination="Agx-Rv-ZVR" id="jYG-Rt-uJk"/>
                         <outlet property="mapView" destination="euP-w8-rTZ" id="ozc-Xp-Hcs"/>
                         <outlet property="middleTextField" destination="82Y-Zv-PfG" id="Eyz-p6-yum"/>
                         <outlet property="middleView" destination="dXP-RP-nLY" id="Yzn-vN-l7i"/>

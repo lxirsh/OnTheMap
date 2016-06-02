@@ -18,6 +18,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     @IBOutlet weak var middleTextField: UITextField!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     // TODO: Change color of text in cancel button (to gray) when a link is to be shared
 
     
@@ -143,6 +144,8 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
             topTextField.enabled = false
             middleTextField.enabled = true
             button.setTitle("Find on the map", forState: .Normal)
+            // TODO: Change color
+            cancelButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
         case .Searching:
             view.backgroundColor = UIColor(red: 79.0/255.0, green: 148/255, blue: 205/255, alpha: 1)
             navigationController?.navigationBar.translucent = false
@@ -150,10 +153,13 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
             middleView.alpha = 0
             bottomView.alpha = 0.75
             mapView.alpha = 1
+            // TODO: Change color
             topTextField.text = shareLinkText
             topTextField.enabled = true
 //             = UIColor(red: (79/255), green: (148/255), blue: (205/255), alpha: 1)
             button.setTitle("Submit", forState: .Normal)
+            // TODO: Change color
+            cancelButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             print("Searching")
         case .LocationView:
 //            middleView.alpha = 0
