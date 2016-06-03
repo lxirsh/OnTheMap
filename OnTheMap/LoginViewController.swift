@@ -124,6 +124,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     // MARK: Text Field Delegates
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        // Obscure the password
+        if textField == passwordTextField {
+           textField.secureTextEntry = true
+        }
         return true
     }
     
