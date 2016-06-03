@@ -8,13 +8,18 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var facebookSignInButton: UIButton!
     
+    let facebookLoginButton: FBSDKLoginButton = {
+        let button = FBSDKLoginButton()
+        button.readPermissions = ["email"]
+        return button
+    }()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +29,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.backgroundColor = UIColor(red: 1.0, green: 0.2, blue: 0.0, alpha: 0.5)
         usernameTextField.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.80, alpha: 0.5)
         passwordTextField.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.80, alpha: 0.5)
-        facebookSignInButton.backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 1.0, alpha: 1.0)
+        
+        view.addSubview(facebookLoginButton)
+        
+        // Position the Facebook login button bottom center
+        facebookLoginButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: facebookLoginButton, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0).active = true
+        NSLayoutConstraint(item: facebookLoginButton, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: -75).active = true
+        
+        facebookLoginButton.delegate = self
+        
+        if let token = FBSDKAccessToken.currentAccessToken() {
+            UdacityClient.sharedInstance().facebookAccessToken = token
+
+            print("Facebook access token: \(UdacityClient.sharedInstance().facebookAccessToken)")
+            loginViaFacebook()
+        }
+
     }
     
     @IBAction func loginButtonTouch(sender: UIButton) {
@@ -54,6 +75,44 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
             })
         }
+    }
+    
+    func loginViaFacebook() {
+        UdacityClient.sharedInstance().getSessionIDviaFacebookLogin() { (success, errorString) in
+            dispatch_async(dispatch_get_main_queue(), {
+                if success {
+                    print("success")
+                    self.performSegueWithIdentifier("OnTheMap", sender: nil)
+                } else {
+                    if let errorString = errorString {
+                        print(errorString)
+                    }
+                    let ac = UIAlertController(title: "Login failed", message: errorString, preferredStyle: .Alert)
+                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                    self.presentViewController(ac, animated: true, completion: nil)
+                    
+                }
+            })
+        }
+
+    }
+    
+    // MARK: Delegate for Facebook login
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        print("completed fb login")
+        if let token = FBSDKAccessToken.currentAccessToken() {
+//            print("token: \(token.tokenString)")
+            UdacityClient.sharedInstance().facebookAccessToken = token
+            print("Facebook access token: \(UdacityClient.sharedInstance().facebookAccessToken)")
+            loginViaFacebook()
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+    }
+    
+    func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {
+        return true
     }
     
 

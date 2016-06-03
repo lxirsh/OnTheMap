@@ -95,5 +95,36 @@ extension UdacityClient {
         }
     }
     
+    // Login via Facebook
+    func getSessionIDviaFacebookLogin(completionHandlerForgetSessionIDviaFacebookLogin: (success: Bool, errorString: String?) -> Void) {
+        
+        let parameters = [String: AnyObject]()
+        
+        let jsonBody = "{\"facebook_mobile\": {\"access_token\": \"\(UdacityClient.sharedInstance().facebookAccessToken!.tokenString!)\"}}"
+        
+        taskForPOSTMethod(UdacityClient.Methods.Session, parameters: parameters, jsonBody: jsonBody) { (results, error) in
+            
+            if let error = error {
+                print("\(error.localizedDescription)\n")
+                if error.localizedDescription == "Your request returned a status code other than 2xx!" {
+                    completionHandlerForgetSessionIDviaFacebookLogin(success: false, errorString: "Invalid access token")
+                } else {
+                    completionHandlerForgetSessionIDviaFacebookLogin(success: false, errorString: "The internet connection appears to be offline.")
+                }
+            } else {
+                print(results)
+                if let session = results[UdacityClient.JSONresponseKeys.Account] as? [String: AnyObject] {
+                    if let user = session[UdacityClient.JSONresponseKeys.UserID] as? String {
+                        UdacityClient.sharedInstance().userID = user
+                        completionHandlerForgetSessionIDviaFacebookLogin(success: true, errorString: nil)
+                    }
+                    
+                } else {
+                    completionHandlerForgetSessionIDviaFacebookLogin(success: false, errorString: "Unkown")
+                }
+            }
+        }
+    }
+    
     
 }

@@ -23,6 +23,7 @@ class UdacityClient: NSObject {
     var firstName: String? = nil
     var lastName: String? = nil
     var publicUserData: [String: AnyObject]?
+    var facebookAccessToken: FBSDKAccessToken?
     
     // MARK: Initializers
 
@@ -158,6 +159,8 @@ class UdacityClient: NSObject {
             
             // GUARD: Did we get a successful 2XX response?
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                let code = (response as? NSHTTPURLResponse)?.statusCode
+                print("status code: \(code)")
                 sendError("Your request returned a status code other than 2xx!")
                 return
             }

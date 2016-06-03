@@ -53,15 +53,6 @@
                                     <action selector="loginButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3ql-IF-osg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LoR-Yh-qdc">
-                                <rect key="frame" x="20" y="530" width="560" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="98p-cv-UXi"/>
-                                </constraints>
-                                <state key="normal" title="Sign In with Facebook">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.63529411764705879" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -73,17 +64,13 @@
                             <constraint firstItem="NEG-ug-psW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bed-mG-vta"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="leading" secondItem="Tb1-2a-k8v" secondAttribute="leading" id="fdK-zu-cqz"/>
                             <constraint firstItem="NEG-ug-psW" firstAttribute="leading" secondItem="Tb1-2a-k8v" secondAttribute="leading" id="gEE-6Y-suC"/>
-                            <constraint firstItem="LoR-Yh-qdc" firstAttribute="trailing" secondItem="idr-Y3-95A" secondAttribute="trailing" id="njy-MH-n0i"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="trailing" secondItem="idr-Y3-95A" secondAttribute="trailing" id="pYT-0b-BD7"/>
-                            <constraint firstAttribute="bottom" secondItem="LoR-Yh-qdc" secondAttribute="bottom" constant="20" symbolic="YES" id="s5j-vd-2a0"/>
                             <constraint firstItem="NEG-ug-psW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uRP-b2-bVB"/>
                             <constraint firstItem="Tb1-2a-k8v" firstAttribute="trailing" secondItem="NEG-ug-psW" secondAttribute="trailing" id="urP-07-zrp"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="top" secondItem="Tb1-2a-k8v" secondAttribute="bottom" constant="8" symbolic="YES" id="waE-A4-cXF"/>
-                            <constraint firstItem="idr-Y3-95A" firstAttribute="leading" secondItem="LoR-Yh-qdc" secondAttribute="leading" id="xOP-kA-i03"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="facebookSignInButton" destination="LoR-Yh-qdc" id="3a9-pU-tkT"/>
                         <outlet property="loginButton" destination="idr-Y3-95A" id="WJF-o2-HhL"/>
                         <outlet property="passwordTextField" destination="sHr-ur-aDs" id="a2J-VG-Nly"/>
                         <outlet property="usernameTextField" destination="Tb1-2a-k8v" id="Rzs-va-8sz"/>
