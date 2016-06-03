@@ -151,7 +151,7 @@
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="UMa-jI-05J"/>
-                            <barButtonItem systemItem="add" id="HrI-0W-0o9">
+                            <barButtonItem image="Pin" id="HrI-0W-0o9">
                                 <connections>
                                     <action selector="addUserInfo:" destination="tho-xh-KTU" id="Yrq-5P-2cV"/>
                                 </connections>
@@ -333,7 +333,7 @@
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="t9h-Ta-9d3"/>
-                            <barButtonItem systemItem="add" id="vuJ-1y-KQd">
+                            <barButtonItem image="Pin" id="vuJ-1y-KQd">
                                 <connections>
                                     <action selector="addUserInfo:" destination="mO2-EK-xkl" id="kkZ-wA-zzD"/>
                                 </connections>
@@ -432,5 +432,6 @@
     <resources>
         <image name="List" width="32" height="32"/>
         <image name="Map" width="32" height="32"/>
+        <image name="Pin" width="32" height="32"/>
     </resources>
 </document>
