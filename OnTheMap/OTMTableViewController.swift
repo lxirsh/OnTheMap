@@ -14,9 +14,18 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
 //    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 //        return 1
 //    }
+    @IBAction func refresh(sender: UIBarButtonItem) {
+        
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return OTMClient.sharedInstance().locations.count

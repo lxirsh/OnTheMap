@@ -28,9 +28,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
                     UdacityClient.sharedInstance().firstName = "First"
                     UdacityClient.sharedInstance().lastName = "Last"
                 } else {
-                    print("ok")
-                    print(UdacityClient.sharedInstance().firstName)
-                    print(UdacityClient.sharedInstance().lastName)
+                    print("Public data fetched for map view")
                 }
             })
         }
@@ -54,6 +52,10 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         
      }
     
+    @IBAction func refresh(sender: UIBarButtonItem) {
+        loadDataToMap()
+    }
+    
     func loadDataToMap() {
         var annotations = [MKPointAnnotation]()
         
@@ -70,6 +72,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
             annotation.subtitle = mediaUrl
             
             annotations.append(annotation)
+            
         }
         self.mapView.addAnnotations(annotations)
     }

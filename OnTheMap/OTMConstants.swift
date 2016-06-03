@@ -38,14 +38,15 @@ extension OTMClient {
     
     // MARK: Parameter Keys
     struct parameterKeys {
-        static let ReverseOrder = "-order"
+        static let ReverseOrder = "order"
+
         static let Limit = "limit"
         static let Where = "where"
     }
     
     // MARK: Parameter Values
     struct paramaterValues {
-        static let TimeUpdated = "updatedAt"
+        static let TimeUpdated = "-updatedAt"
         static let NumberOfObjectsToReturn = "100"
     }
     

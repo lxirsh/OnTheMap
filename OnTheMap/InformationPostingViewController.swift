@@ -89,6 +89,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                                     ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                                     self.presentViewController(ac, animated: true, completion: nil)
                                 } else {
+                                    print("Update successful")
                                     let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
                                     self.presentViewController(rootViewController, animated: true, completion: nil)
                                     

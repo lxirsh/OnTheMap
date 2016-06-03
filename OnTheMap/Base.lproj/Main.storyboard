@@ -130,8 +130,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="tho-xh-KTU" id="pKE-fQ-s6V"/>
-                                    <outlet property="delegate" destination="tho-xh-KTU" id="olr-3h-axm"/>
+                                    <outlet property="dataSource" destination="tho-xh-KTU" id="2iA-fj-ZTq"/>
+                                    <outlet property="delegate" destination="tho-xh-KTU" id="UoF-lU-CQI"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -150,7 +150,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="refresh" id="UMa-jI-05J"/>
+                            <barButtonItem systemItem="refresh" id="UMa-jI-05J">
+                                <connections>
+                                    <action selector="refresh:" destination="tho-xh-KTU" id="jp4-9u-L2h"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="Pin" id="HrI-0W-0o9">
                                 <connections>
                                     <action selector="addUserInfo:" destination="tho-xh-KTU" id="Yrq-5P-2cV"/>
@@ -332,7 +336,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="refresh" id="t9h-Ta-9d3"/>
+                            <barButtonItem systemItem="refresh" id="t9h-Ta-9d3">
+                                <connections>
+                                    <action selector="refresh:" destination="mO2-EK-xkl" id="a9m-Ux-old"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="Pin" id="vuJ-1y-KQd">
                                 <connections>
                                     <action selector="addUserInfo:" destination="mO2-EK-xkl" id="kkZ-wA-zzD"/>
