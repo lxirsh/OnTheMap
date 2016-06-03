@@ -24,6 +24,7 @@ class UdacityClient: NSObject {
     var lastName: String? = nil
     var publicUserData: [String: AnyObject]?
     var facebookAccessToken: FBSDKAccessToken?
+    var loggedInViaFacebook: Bool?
     
     // MARK: Initializers
 

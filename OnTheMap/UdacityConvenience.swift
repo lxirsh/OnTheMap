@@ -116,6 +116,7 @@ extension UdacityClient {
                 if let session = results[UdacityClient.JSONresponseKeys.Account] as? [String: AnyObject] {
                     if let user = session[UdacityClient.JSONresponseKeys.UserID] as? String {
                         UdacityClient.sharedInstance().userID = user
+                        UdacityClient.sharedInstance().loggedInViaFacebook = true
                         completionHandlerForgetSessionIDviaFacebookLogin(success: true, errorString: nil)
                     }
                     
@@ -124,6 +125,13 @@ extension UdacityClient {
                 }
             }
         }
+    }
+    
+    // Logoout of Facebook session
+    func facebookLogout() {
+//        let loginManager = FBSDKLoginManager()
+//        loginManager.logOut()
+        FBSDKLoginManager().logOut()
     }
     
     

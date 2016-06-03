@@ -114,6 +114,9 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
             
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
+                    if (UdacityClient.sharedInstance().loggedInViaFacebook == true) {
+                        UdacityClient.sharedInstance().facebookLogout()
+                    }
                     let vc = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController")
                     self.presentViewController(vc, animated: true, completion: nil)
                     
