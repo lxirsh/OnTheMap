@@ -10,8 +10,10 @@ import UIKit
 
 class StudentInfoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var pinImage: UIImageView!
     @IBOutlet weak var studentName: UILabel!
     @IBOutlet weak var studentUrl: UILabel!
+    
     
     
     override func awakeFromNib() {
