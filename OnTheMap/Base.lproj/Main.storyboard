@@ -372,7 +372,7 @@
         <scene sceneID="19t-4F-xqJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ni1-n6-YjK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="Yj0-Qd-9do"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Map" selectedImage="Map" id="Yj0-Qd-9do"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jmj-WS-QEq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -387,11 +387,11 @@
             </objects>
             <point key="canvasLocation" x="508" y="274"/>
         </scene>
-        <!--Item 2-->
+        <!--List-->
         <scene sceneID="LqC-7n-F8e">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Ce-Fg-PR2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="dSf-1H-RHr"/>
+                    <tabBarItem key="tabBarItem" title="List" image="List" selectedImage="List" id="dSf-1H-RHr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="isb-VJ-SU8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -429,4 +429,8 @@
             <point key="canvasLocation" x="2083" y="438"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="List" width="32" height="32"/>
+        <image name="Map" width="32" height="32"/>
+    </resources>
 </document>
