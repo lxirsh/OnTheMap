@@ -162,6 +162,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Qdc-yn-Zi1" id="eBx-CW-cya"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edt-le-OJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

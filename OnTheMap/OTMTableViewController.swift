@@ -10,6 +10,8 @@ import UIKit
 
 class OTMTableViewController: UIViewController, UITableViewDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,14 +19,16 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        
+        tableView.reloadData()
     }
     
 //    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 //        return 1
 //    }
     @IBAction func refresh(sender: UIBarButtonItem) {
-        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
