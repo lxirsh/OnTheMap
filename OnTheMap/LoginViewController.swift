@@ -25,9 +25,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         
-        loginButton.backgroundColor = UIColor(red: 1.0, green: 0.2, blue: 0.0, alpha: 0.5)
-        usernameTextField.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.80, alpha: 0.5)
-        passwordTextField.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.80, alpha: 0.5)
+        loginButton.backgroundColor = CustomColor.Login.LoginButtonColor
+        usernameTextField.backgroundColor = CustomColor.Login.TextFieldColor
+        passwordTextField.backgroundColor = CustomColor.Login.TextFieldColor
         
         view.addSubview(facebookLoginButton)
         

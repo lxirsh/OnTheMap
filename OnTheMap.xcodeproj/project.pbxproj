@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B40C8DDC1D02DD010010708A /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40C8DDB1D02DD010010708A /* CustomColors.swift */; };
 		B43210DA1CABF6C700636001 /* OTMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43210D91CABF6C700636001 /* OTMTableViewController.swift */; };
 		B43210DC1CAC054F00636001 /* StudentInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43210DB1CAC054F00636001 /* StudentInfoTableViewCell.swift */; };
 		B46D25851CA6746A00EE1045 /* OTMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D25841CA6746900EE1045 /* OTMConstants.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B40C8DDB1D02DD010010708A /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		B43210D91CABF6C700636001 /* OTMTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMTableViewController.swift; sourceTree = "<group>"; };
 		B43210DB1CAC054F00636001 /* StudentInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInfoTableViewCell.swift; sourceTree = "<group>"; };
 		B46D25841CA6746900EE1045 /* OTMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConstants.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B40C8DDA1D02DCC40010708A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B40C8DDB1D02DD010010708A /* CustomColors.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		B48149FE1C9868E200B8E978 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 		B4814A091C9868E200B8E978 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				B40C8DDA1D02DCC40010708A /* View */,
 				B4F6CCC91D00649000FB3A83 /* Frameworks */,
 				B4814A1C1C98917F00B8E978 /* Model */,
 				B4814A1D1C98919100B8E978 /* Controller */,
@@ -243,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4B6087E1CA440D500218D36 /* MapViewViewController.swift in Sources */,
+				B40C8DDC1D02DD010010708A /* CustomColors.swift in Sources */,
 				B4B608831CA4577B00218D36 /* OTMConvenience.swift in Sources */,
 				B4F6CCD21D006C6F00FB3A83 /* bridging_header.m in Sources */,
 				B43210DA1CABF6C700636001 /* OTMTableViewController.swift in Sources */,
