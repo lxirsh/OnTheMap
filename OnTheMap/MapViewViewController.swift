@@ -124,8 +124,9 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
                     self.presentViewController(vc, animated: true, completion: nil)
                     
                 } else {
-                    // Add an alert?
-                    print(error)
+                    let ac = UIAlertController(title: "Could not logout", message: "Please try again", preferredStyle: .Alert)
+                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                    self.presentViewController(ac, animated: true, completion: nil)
                 }
             })
         }
