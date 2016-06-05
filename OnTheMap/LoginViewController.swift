@@ -106,7 +106,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         print("completed fb login")
         if let token = FBSDKAccessToken.currentAccessToken() {
-//            print("token: \(token.tokenString)")
             UdacityClient.sharedInstance().facebookAccessToken = token
             print("Facebook access token: \(UdacityClient.sharedInstance().facebookAccessToken)")
             loginViaFacebook()

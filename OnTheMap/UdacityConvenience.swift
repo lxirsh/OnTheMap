@@ -48,7 +48,6 @@ extension UdacityClient {
         
         let parameters = [String: AnyObject]()
         var mutableMethod = UdacityClient.Methods.PublicUserData
-//        print(UdacityClient.sharedInstance().userID)
         mutableMethod = subtituteKeyInMethod(mutableMethod, key: UdacityClient.URLKeys.UserID, value: userID)!
         
         taskForGETMethod(mutableMethod, parameters: parameters) { (results, error) in
@@ -129,8 +128,6 @@ extension UdacityClient {
     
     // Logoout of Facebook session
     func facebookLogout() {
-//        let loginManager = FBSDKLoginManager()
-//        loginManager.logOut()
         FBSDKLoginManager().logOut()
     }
     

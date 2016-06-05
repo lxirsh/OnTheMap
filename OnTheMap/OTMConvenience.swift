@@ -40,7 +40,6 @@ extension OTMClient {
     func queryStudentLocation(completionHandlerForQueryStudentLocation: (success: Bool, errorString: String?) -> Void) {
         
         let query = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"\(UdacityClient.sharedInstance().userID!)\"}"
-//        let query = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"6666666666\"}"
         
         let parameters = [
             OTMClient.parameterKeys.Where : query
@@ -62,9 +61,7 @@ extension OTMClient {
                                     completionHandlerForQueryStudentLocation(success: false, errorString: "Could not find the user's ID")
                                     return
                                 }
-                                print("objectId: \(dict["objectId"])")
                                 self.objectId = ID
-//                                OTMClient.sharedInstance().objectId = dict["objectId"]
                             }
                             completionHandlerForQueryStudentLocation(success: false, errorString: "Already pinned")
                         } else {

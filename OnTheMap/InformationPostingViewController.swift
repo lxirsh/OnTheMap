@@ -19,7 +19,6 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    // TODO: Change color of text in cancel button (to gray) when a link is to be shared
 
     
     
@@ -29,7 +28,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     var pinned: Bool?
     
     enum UIState: String {
-        case Initial, Searching, LocationView
+        case Initial, Searching
     }
     
     override func viewDidLoad() {
@@ -115,12 +114,8 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
 
                 }
             
-            default:
-                print("error")
+            default: ()
         }
-        
-        
-
     }
     
     func showUserLocation() {
@@ -137,6 +132,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     func configureUIForState(state: UIState) {
         
         switch state {
+            
         case .Initial:
             print("Initial")
             middleView.alpha = 1
@@ -149,6 +145,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
             middleTextField.textColor = CustomColor.InformationPostingState.TextGrayColor
             button.backgroundColor = CustomColor.InformationPostingState.ButtonColor
             cancelButton.setTitleColor(CustomColor.InformationPostingState.CancelButtonColor, forState: .Normal)
+            
         case .Searching:
             view.backgroundColor = CustomColor.InformationPostingState.BackgroundBlueColor
             navigationController?.navigationBar.translucent = false
@@ -160,18 +157,8 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
             topTextField.textColor = CustomColor.InformationPostingState.TextGrayColor
             topTextField.enabled = true
             button.setTitle("Submit", forState: .Normal)
-            // TODO: Change color
             cancelButton.setTitleColor(CustomColor.InformationPostingState.TextGrayColor, forState: .Normal)
-            print("Searching")
-        case .LocationView:
-//            middleView.alpha = 0
-//            bottomView.alpha = 0.75
-//            mapView.alpha = 1
-//            topTextField.text = "Enter a Link to Share Here"
-//            topTextField.enabled = true
-//            button.setTitle("Submit", forState: .Normal)
-            print("Location view")
-        }
+            }
     }
 
     @IBAction func cancel(sender: UIButton) {

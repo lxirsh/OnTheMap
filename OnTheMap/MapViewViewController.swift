@@ -23,7 +23,9 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         UdacityClient.sharedInstance().getPublicUserData(UdacityClient.sharedInstance().userID!) { (success, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 if let error = error  {
-                    // TODO: add an alert
+                    let ac = UIAlertController(title: "Could not retrieve user's name", message: "Please re-login to try again", preferredStyle: .Alert)
+                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                    self.presentViewController(ac, animated: true, completion: nil)
                     print(error)
                     UdacityClient.sharedInstance().firstName = "First"
                     UdacityClient.sharedInstance().lastName = "Last"
@@ -33,6 +35,11 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
             })
         }
         
+        retrieveStudentData()
+        
+     }
+    
+    func retrieveStudentData() {
         OTMClient.sharedInstance().getStudentLocations() { (success, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
@@ -41,19 +48,18 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
                 } else {
                     if let error = error {
                         print(error)
-                        let ac = UIAlertController(title: "", message: "Could not load student data", preferredStyle: .Alert)
+                        let ac = UIAlertController(title: "Could not load student data", message: "Please refresh to try again", preferredStyle: .Alert)
                         ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                         self.presentViewController(ac, animated: true, completion: nil)
                     }
                 }
-
+                
             })
         }
-        
-     }
+    }
     
     @IBAction func refresh(sender: UIBarButtonItem) {
-        loadDataToMap()
+        retrieveStudentData()
     }
     
     func loadDataToMap() {
@@ -103,9 +109,9 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
                         self.presentViewController(ac, animated: true, completion: nil)
                         print("User pinned")
                     } else {
-                        // TODO: Add alert
-                        print("error")
-                    }
+                        let ac = UIAlertController(title: "Unkown error", message: "Please try again", preferredStyle: .Alert)
+                        ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                        self.presentViewController(ac, animated: true, completion: nil)                    }
                 }
             })
             

@@ -22,9 +22,6 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
         tableView.reloadData()
     }
     
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        return 1
-//    }
     @IBAction func refresh(sender: UIBarButtonItem) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()
@@ -78,7 +75,6 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
                     }
                 }
             })
-            
         }
     }
     
@@ -96,7 +92,6 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
                 }
             })
         }
-        
     }
 
     
@@ -117,8 +112,4 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
         }
         
     }
-    
-    
-    
-    
 }
