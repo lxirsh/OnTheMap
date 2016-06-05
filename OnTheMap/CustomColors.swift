@@ -12,8 +12,10 @@ class CustomColor {
     
     // MARK: Login View Controller Colors
     struct Login {
-        static let TextFieldColor = UIColor(red: 1.0, green: 1.0, blue: 0.80, alpha: 0.5)
-        static let LoginButtonColor = UIColor(red: 1.0, green: 0.2, blue: 0.0, alpha: 0.5)
+//        static let TextFieldColor = UIColor(red: 1.0, green: 1.0, blue: 0.80, alpha: 0.5)
+        static let TextFieldColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 225/255.0, alpha: 0.5)
+
+        static let LoginButtonColor = UIColor(red: 255/255.0, green: 80/255.0, blue: 0/255.0, alpha: 0.5)
 
     }
     
