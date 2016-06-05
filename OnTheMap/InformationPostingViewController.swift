@@ -145,22 +145,23 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
             topTextField.enabled = false
             middleTextField.enabled = true
             button.setTitle("Find on the map", forState: .Normal)
-            // TODO: Change color
-            cancelButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+            topTextField.textColor = CustomColor.InformationPostingState.TextBlueColor
+            middleTextField.textColor = CustomColor.InformationPostingState.TextGrayColor
+            button.backgroundColor = CustomColor.InformationPostingState.ButtonColor
+            cancelButton.setTitleColor(CustomColor.InformationPostingState.CancelButtonColor, forState: .Normal)
         case .Searching:
-            view.backgroundColor = UIColor(red: 79.0/255.0, green: 148/255, blue: 205/255, alpha: 1)
+            view.backgroundColor = CustomColor.InformationPostingState.BackgroundBlueColor
             navigationController?.navigationBar.translucent = false
-            navigationController?.navigationBar.barTintColor = UIColor(red: 79.0/255.0, green: 148/255, blue: 205/255, alpha: 1)
+            navigationController?.navigationBar.barTintColor = CustomColor.InformationPostingState.BackgroundBlueColor
             middleView.alpha = 0
             bottomView.alpha = 0.75
             mapView.alpha = 1
-            // TODO: Change color
             topTextField.text = shareLinkText
+            topTextField.textColor = CustomColor.InformationPostingState.TextGrayColor
             topTextField.enabled = true
-//             = UIColor(red: (79/255), green: (148/255), blue: (205/255), alpha: 1)
             button.setTitle("Submit", forState: .Normal)
             // TODO: Change color
-            cancelButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            cancelButton.setTitleColor(CustomColor.InformationPostingState.TextGrayColor, forState: .Normal)
             print("Searching")
         case .LocationView:
 //            middleView.alpha = 0

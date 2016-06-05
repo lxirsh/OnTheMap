@@ -198,13 +198,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="euP-w8-rTZ">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="euP-w8-rTZ">
                                 <rect key="frame" x="0.0" y="203" width="600" height="397"/>
                                 <connections>
                                     <outlet property="delegate" destination="bMd-Lj-wf8" id="n7f-8N-Ny3"/>
                                 </connections>
                             </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Where are you studying today?" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cl9-1A-Ig1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Where are you studying today?" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cl9-1A-Ig1">
                                 <rect key="frame" x="20" y="72" width="560" height="123"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="123" id="Sbm-Ic-Pf7"/>
@@ -237,7 +237,7 @@
                                     <constraint firstItem="BM2-gM-591" firstAttribute="centerX" secondItem="afR-k2-GnV" secondAttribute="centerX" id="onu-tX-G5h"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXP-RP-nLY">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXP-RP-nLY">
                                 <rect key="frame" x="0.0" y="195" width="600" height="270"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your location here." textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="82Y-Zv-PfG">
@@ -247,7 +247,7 @@
                                             <constraint firstAttribute="height" constant="30" id="4un-Ag-nZy"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -258,9 +258,9 @@
                                     <constraint firstItem="82Y-Zv-PfG" firstAttribute="top" secondItem="dXP-RP-nLY" secondAttribute="top" constant="18" id="cSb-ib-xRC"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agx-Rv-ZVR">
-                                <rect key="frame" x="524" y="28" width="56" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agx-Rv-ZVR">
+                                <rect key="frame" x="521" y="28" width="59" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancel:" destination="bMd-Lj-wf8" eventType="touchUpInside" id="Sam-NR-Ae0"/>
@@ -271,7 +271,7 @@
                         <constraints>
                             <constraint firstItem="dXP-RP-nLY" firstAttribute="leading" secondItem="euP-w8-rTZ" secondAttribute="leading" id="153-U3-Em2"/>
                             <constraint firstItem="cl9-1A-Ig1" firstAttribute="leading" secondItem="XLC-0W-As5" secondAttribute="leadingMargin" id="1WO-N3-zg5"/>
-                            <constraint firstItem="cl9-1A-Ig1" firstAttribute="top" secondItem="cQc-p5-6wd" secondAttribute="bottom" constant="8" symbolic="YES" id="2om-Lr-V0O"/>
+                            <constraint firstItem="cl9-1A-Ig1" firstAttribute="top" secondItem="cQc-p5-6wd" secondAttribute="bottom" constant="52" id="2om-Lr-V0O"/>
                             <constraint firstItem="euP-w8-rTZ" firstAttribute="top" secondItem="cl9-1A-Ig1" secondAttribute="bottom" constant="8" symbolic="YES" id="2rk-Us-4Gd"/>
                             <constraint firstItem="dXP-RP-nLY" firstAttribute="trailing" secondItem="XLC-0W-As5" secondAttribute="trailingMargin" constant="20" id="5rM-Fl-gcQ"/>
                             <constraint firstItem="5LI-sv-MQA" firstAttribute="top" secondItem="afR-k2-GnV" secondAttribute="bottom" id="BIH-fg-kt7"/>
@@ -287,7 +287,7 @@
                             <constraint firstItem="cl9-1A-Ig1" firstAttribute="centerX" secondItem="dXP-RP-nLY" secondAttribute="centerX" id="Zf7-JE-NBn"/>
                             <constraint firstItem="Agx-Rv-ZVR" firstAttribute="trailing" secondItem="cl9-1A-Ig1" secondAttribute="trailing" id="eCT-qp-7vw"/>
                             <constraint firstItem="dXP-RP-nLY" firstAttribute="leading" secondItem="XLC-0W-As5" secondAttribute="leadingMargin" constant="-20" id="ePg-p7-3Ps"/>
-                            <constraint firstItem="Agx-Rv-ZVR" firstAttribute="top" secondItem="cQc-p5-6wd" secondAttribute="bottom" constant="8" symbolic="YES" id="rVe-OI-p1w"/>
+                            <constraint firstItem="Agx-Rv-ZVR" firstAttribute="top" secondItem="cQc-p5-6wd" secondAttribute="bottom" constant="8" id="rVe-OI-p1w"/>
                             <constraint firstAttribute="bottom" secondItem="afR-k2-GnV" secondAttribute="bottom" constant="20" symbolic="YES" id="sGz-Uc-PYR"/>
                             <constraint firstItem="afR-k2-GnV" firstAttribute="trailing" secondItem="XLC-0W-As5" secondAttribute="trailingMargin" constant="20" id="tTv-3b-Nw8"/>
                             <constraint firstItem="afR-k2-GnV" firstAttribute="leading" secondItem="euP-w8-rTZ" secondAttribute="leading" id="vmm-4P-B7K"/>
