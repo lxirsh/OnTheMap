@@ -59,7 +59,7 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
                     
                 } else {
                     if error == "Already pinned" {
-                        let ac = UIAlertController(title: "", message: "User \"\(UdacityClient.sharedInstance().firstName) \(UdacityClient.sharedInstance().lastName)\" has already posted a location. Would you like to overwrite their location?", preferredStyle: .Alert)
+                        let ac = UIAlertController(title: "", message: "User \"\(UdacityClient.sharedInstance().firstName!) \(UdacityClient.sharedInstance().lastName!)\" has already posted a location. Would you like to overwrite their location?", preferredStyle: .Alert)
                         ac.addAction(UIAlertAction(title: "Overwrite", style: .Default, handler: { (action: UIAlertAction!) in
                             let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
                             destinationVC.pinned = true

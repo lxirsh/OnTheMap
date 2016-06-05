@@ -85,7 +85,6 @@
 		B48149FE1C9868E200B8E978 = {
 			isa = PBXGroup;
 			children = (
-				B4C9171F1CA1311C002CEEFF /* MapKit.framework */,
 				B4814A091C9868E200B8E978 /* OnTheMap */,
 				B4814A081C9868E200B8E978 /* Products */,
 			);
@@ -170,6 +169,7 @@
 		B4F6CCC91D00649000FB3A83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4C9171F1CA1311C002CEEFF /* MapKit.framework */,
 				B4F6CCD31D006E1300FB3A83 /* FBSDKCoreKit.framework */,
 				B4F6CCD41D006E1300FB3A83 /* FBSDKLoginKit.framework */,
 				B4F6CCD51D006E1300FB3A83 /* FBSDKShareKit.framework */,
