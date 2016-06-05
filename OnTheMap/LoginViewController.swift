@@ -95,6 +95,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         }
 
     }
+    @IBAction func signUp(sender: UIButton) {
+        let app = UIApplication.sharedApplication()
+        if let toOpen = NSURL(string: UdacityClient.Constants.UdacitySignUpURL) {
+            app.openURL(toOpen)
+        }
+    }
     
     // MARK: Delegate for Facebook login
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
