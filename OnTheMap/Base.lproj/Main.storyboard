@@ -280,9 +280,9 @@
                                     <constraint firstItem="82Y-Zv-PfG" firstAttribute="top" secondItem="dXP-RP-nLY" secondAttribute="top" constant="18" id="cSb-ib-xRC"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agx-Rv-ZVR">
-                                <rect key="frame" x="521" y="28" width="59" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agx-Rv-ZVR">
+                                <rect key="frame" x="519" y="28" width="63" height="35"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancel:" destination="bMd-Lj-wf8" eventType="touchUpInside" id="Sam-NR-Ae0"/>
@@ -307,7 +307,7 @@
                             <constraint firstItem="afR-k2-GnV" firstAttribute="leading" secondItem="XLC-0W-As5" secondAttribute="leadingMargin" constant="-20" id="Tu7-jU-HQU"/>
                             <constraint firstItem="afR-k2-GnV" firstAttribute="trailing" secondItem="euP-w8-rTZ" secondAttribute="trailing" id="Wp6-2E-BLW"/>
                             <constraint firstItem="cl9-1A-Ig1" firstAttribute="centerX" secondItem="dXP-RP-nLY" secondAttribute="centerX" id="Zf7-JE-NBn"/>
-                            <constraint firstItem="Agx-Rv-ZVR" firstAttribute="trailing" secondItem="cl9-1A-Ig1" secondAttribute="trailing" id="eCT-qp-7vw"/>
+                            <constraint firstItem="Agx-Rv-ZVR" firstAttribute="trailing" secondItem="cl9-1A-Ig1" secondAttribute="trailing" constant="2" id="eCT-qp-7vw"/>
                             <constraint firstItem="dXP-RP-nLY" firstAttribute="leading" secondItem="XLC-0W-As5" secondAttribute="leadingMargin" constant="-20" id="ePg-p7-3Ps"/>
                             <constraint firstItem="Agx-Rv-ZVR" firstAttribute="top" secondItem="cQc-p5-6wd" secondAttribute="bottom" constant="8" id="rVe-OI-p1w"/>
                             <constraint firstAttribute="bottom" secondItem="afR-k2-GnV" secondAttribute="bottom" constant="20" symbolic="YES" id="sGz-Uc-PYR"/>
