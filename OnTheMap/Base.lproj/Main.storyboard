@@ -19,14 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEG-ug-psW">
-                                <rect key="frame" x="20" y="180" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  Email" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tb1-2a-k8v">
-                                <rect key="frame" x="20" y="224" width="560" height="50"/>
+                                <rect key="frame" x="20" y="296" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hAm-00-OUs"/>
                                 </constraints>
@@ -35,7 +29,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sHr-ur-aDs">
-                                <rect key="frame" x="20" y="282" width="560" height="50"/>
+                                <rect key="frame" x="20" y="354" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="nAa-rK-fOe"/>
                                 </constraints>
@@ -44,7 +38,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idr-Y3-95A">
-                                <rect key="frame" x="20" y="340" width="560" height="50"/>
+                                <rect key="frame" x="20" y="412" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gHd-Jw-0er"/>
                                 </constraints>
@@ -56,14 +50,20 @@
                                     <action selector="loginButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3ql-IF-osg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEG-ug-psW">
+                                <rect key="frame" x="20" y="267" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.63529411764705879" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="idr-Y3-95A" firstAttribute="top" secondItem="sHr-ur-aDs" secondAttribute="bottom" constant="8" symbolic="YES" id="1Xr-y0-8je"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="trailing" secondItem="Tb1-2a-k8v" secondAttribute="trailing" id="5P3-Nu-xjr"/>
-                            <constraint firstItem="Tb1-2a-k8v" firstAttribute="top" secondItem="NEG-ug-psW" secondAttribute="bottom" constant="23" id="OLl-HY-PsT"/>
+                            <constraint firstItem="Tb1-2a-k8v" firstAttribute="top" secondItem="NEG-ug-psW" secondAttribute="bottom" constant="8" id="OLl-HY-PsT"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="leading" secondItem="idr-Y3-95A" secondAttribute="leading" id="Ypc-61-Xva"/>
-                            <constraint firstItem="NEG-ug-psW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="160" id="YxY-Ox-frQ"/>
+                            <constraint firstItem="NEG-ug-psW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="247" id="YxY-Ox-frQ"/>
                             <constraint firstItem="NEG-ug-psW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bed-mG-vta"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="leading" secondItem="Tb1-2a-k8v" secondAttribute="leading" id="fdK-zu-cqz"/>
                             <constraint firstItem="NEG-ug-psW" firstAttribute="leading" secondItem="Tb1-2a-k8v" secondAttribute="leading" id="gEE-6Y-suC"/>
