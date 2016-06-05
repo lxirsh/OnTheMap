@@ -19,6 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEG-ug-psW">
+                                <rect key="frame" x="20" y="267" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  Email" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tb1-2a-k8v">
                                 <rect key="frame" x="20" y="296" width="560" height="50"/>
                                 <constraints>
@@ -50,20 +56,22 @@
                                     <action selector="loginButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3ql-IF-osg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEG-ug-psW">
-                                <rect key="frame" x="20" y="267" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Udacity Logo" translatesAutoresizingMaskIntoConstraints="NO" id="L7H-2C-oM6">
+                                <rect key="frame" x="242" y="77" width="116" height="126"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="116" id="w1R-GF-FJN"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.63529411764705879" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="idr-Y3-95A" firstAttribute="top" secondItem="sHr-ur-aDs" secondAttribute="bottom" constant="8" symbolic="YES" id="1Xr-y0-8je"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="trailing" secondItem="Tb1-2a-k8v" secondAttribute="trailing" id="5P3-Nu-xjr"/>
                             <constraint firstItem="Tb1-2a-k8v" firstAttribute="top" secondItem="NEG-ug-psW" secondAttribute="bottom" constant="8" id="OLl-HY-PsT"/>
+                            <constraint firstItem="L7H-2C-oM6" firstAttribute="centerX" secondItem="NEG-ug-psW" secondAttribute="centerX" id="TOR-hc-lRE"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="leading" secondItem="idr-Y3-95A" secondAttribute="leading" id="Ypc-61-Xva"/>
                             <constraint firstItem="NEG-ug-psW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="247" id="YxY-Ox-frQ"/>
+                            <constraint firstItem="NEG-ug-psW" firstAttribute="top" secondItem="L7H-2C-oM6" secondAttribute="bottom" constant="64" id="adO-WA-5am"/>
                             <constraint firstItem="NEG-ug-psW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bed-mG-vta"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="leading" secondItem="Tb1-2a-k8v" secondAttribute="leading" id="fdK-zu-cqz"/>
                             <constraint firstItem="NEG-ug-psW" firstAttribute="leading" secondItem="Tb1-2a-k8v" secondAttribute="leading" id="gEE-6Y-suC"/>
@@ -71,6 +79,7 @@
                             <constraint firstItem="NEG-ug-psW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uRP-b2-bVB"/>
                             <constraint firstItem="Tb1-2a-k8v" firstAttribute="trailing" secondItem="NEG-ug-psW" secondAttribute="trailing" id="urP-07-zrp"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="top" secondItem="Tb1-2a-k8v" secondAttribute="bottom" constant="8" symbolic="YES" id="waE-A4-cXF"/>
+                            <constraint firstItem="L7H-2C-oM6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="57" id="ya3-0w-dBi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -460,5 +469,6 @@
         <image name="List" width="32" height="32"/>
         <image name="Map" width="32" height="32"/>
         <image name="Pin" width="32" height="32"/>
+        <image name="Udacity Logo" width="256" height="256"/>
     </resources>
 </document>
