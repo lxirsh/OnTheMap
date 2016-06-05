@@ -52,7 +52,7 @@ extension UdacityClient {
         mutableMethod = subtituteKeyInMethod(mutableMethod, key: UdacityClient.URLKeys.UserID, value: userID)!
         
         taskForGETMethod(mutableMethod, parameters: parameters) { (results, error) in
-            if let error = error {
+            if error != nil {
                 completionHandlerForUserData(success: nil, errorString: "Could not get public user data")
             } else {
                 guard let results = results as? [String: AnyObject] else {
@@ -83,10 +83,10 @@ extension UdacityClient {
     func deleteSession(completionHandlerForDeleteSession: (success: Bool, errorString: String?) -> Void) {
         
         let parameters = [String: AnyObject]()
-        var mutableMethod = UdacityClient.Methods.Session
+        let mutableMethod = UdacityClient.Methods.Session
         
         taskForDELETEMethod(mutableMethod, parameters: parameters) { (results, error) in
-            if let error = error {
+            if error != nil {
                 completionHandlerForDeleteSession(success: false, errorString: "Could not delete session")
             } else {
                 completionHandlerForDeleteSession(success: true, errorString: nil)

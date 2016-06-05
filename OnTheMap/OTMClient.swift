@@ -25,7 +25,9 @@ class OTMClient: NSObject {
     
     // MARK: GET
     
-    func taskForGETMethod(method: String, var parameters: [String: AnyObject], completionHandlerForGet: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForGETMethod(method: String, parameters: [String: AnyObject], completionHandlerForGet: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        var parameters = parameters
         
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtention: method))
@@ -72,7 +74,9 @@ class OTMClient: NSObject {
     
     // MARK: Post
     
-    func taskForPOSTMethod(method: String, var parameters: [String: AnyObject], jsonBody: String, completionHandlerForPOST: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForPOSTMethod(method: String, parameters: [String: AnyObject], jsonBody: String, completionHandlerForPOST: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        var parameters = parameters
         
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtention: method))
@@ -119,7 +123,9 @@ class OTMClient: NSObject {
         return task
     }
     
-    func taskForPUTMethod(method: String, var parameters: [String: AnyObject], jsonBody: String, completionHandlerForPUT: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForPUTMethod(method: String, parameters: [String: AnyObject], jsonBody: String, completionHandlerForPUT: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        var parameters = parameters
         
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtention: method))

@@ -34,8 +34,10 @@ class UdacityClient: NSObject {
     
     // MARK: GET
     
-    func taskForGETMethod(method: String, var parameters: [String: AnyObject], completionHandlerForGet: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForGETMethod(method: String, parameters: [String: AnyObject], completionHandlerForGet: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
     
+        var parameters = parameters
+        
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtention: method))
         
@@ -78,7 +80,9 @@ class UdacityClient: NSObject {
     }
     
     // TODO: DELETE Method (for logging out of a session)
-    func taskForDELETEMethod(method: String, var parameters: [String: AnyObject], completionHandlerForDELETE: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForDELETEMethod(method: String, parameters: [String: AnyObject], completionHandlerForDELETE: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        var parameters = parameters
         
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtention: method))
@@ -133,7 +137,9 @@ class UdacityClient: NSObject {
     
     // MARK: Post
     
-    func taskForPOSTMethod(method: String, var parameters: [String: AnyObject], jsonBody: String, completionHandlerForPOST: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForPOSTMethod(method: String, parameters: [String: AnyObject], jsonBody: String, completionHandlerForPOST: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        var parameters = parameters
         
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtention: method))

@@ -61,7 +61,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                     searchString = middleTextField.text
                     OTMClient.sharedInstance().getUserLocation(searchString!) { (success, error) in
                         dispatch_async(dispatch_get_main_queue(), {
-                            if let error = error  {
+                            if error != nil  {
                                 let ac = UIAlertController(title: "", message: "Unable to find location", preferredStyle: .Alert)
                                 ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                                 self.presentViewController(ac, animated: true, completion: nil)
@@ -84,7 +84,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                     if pinned == true {
                         OTMClient.sharedInstance().updateStudentLocation(mediaURL!) { (success, error) in
                             dispatch_async(dispatch_get_main_queue(), {
-                                if let error = error  {
+                                if error != nil  {
                                     let ac = UIAlertController(title: "", message: "Unable to update location", preferredStyle: .Alert)
                                     ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                                     self.presentViewController(ac, animated: true, completion: nil)
@@ -99,7 +99,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                     } else {
                         OTMClient.sharedInstance().postStudentLocation(mediaURL!) { (success, error) in
                             dispatch_async(dispatch_get_main_queue(), {
-                                if let error = error  {
+                                if error != nil  {
                                     let ac = UIAlertController(title: "", message: "Unable to update location", preferredStyle: .Alert)
                                     ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                                     self.presentViewController(ac, animated: true, completion: nil)
