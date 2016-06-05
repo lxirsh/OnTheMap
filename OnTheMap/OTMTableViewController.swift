@@ -15,17 +15,23 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         
-        tableView.reloadData()
-    }
-    
     @IBAction func refresh(sender: UIBarButtonItem) {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
+        OTMClient.sharedInstance().getStudentLocations() { (success, error) in
+            dispatch_async(dispatch_get_main_queue(), {
+                if success {
+                    self.tableView.reloadData()
+                } else {
+                    if let error = error {
+                        print(error)
+                        let ac = UIAlertController(title: "Could not load student data", message: "Please refresh to try again", preferredStyle: .Alert)
+                        ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                        self.presentViewController(ac, animated: true, completion: nil)
+                    }
+                }
+                
+            })
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

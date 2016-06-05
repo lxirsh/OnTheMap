@@ -39,11 +39,11 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         
      }
     
+    // Get the student data and load it to the map
     func retrieveStudentData() {
         OTMClient.sharedInstance().getStudentLocations() { (success, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
-                    print("Number of locations: \(OTMClient.sharedInstance().locations.count)")
                     self.loadDataToMap()
                 } else {
                     if let error = error {
