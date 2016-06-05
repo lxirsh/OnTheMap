@@ -159,9 +159,15 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             let app = UIApplication.sharedApplication()
-            if let toOpen = view.annotation?.subtitle! {
-                app.openURL(NSURL(string: toOpen)!)
-            }
+            if let url = NSURL(string:(view.annotation?.subtitle!)!) {
+                if app.canOpenURL(url) {
+                    app.openURL(url)
+                    print(url)
+                } else {
+                    let ac = UIAlertController(title: "Invalid Link", message: nil, preferredStyle: .Alert)
+                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                    self.presentViewController(ac, animated: true, completion: nil)
+                }            }
         }
     }
     

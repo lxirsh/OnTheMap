@@ -106,10 +106,15 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
         let app = UIApplication.sharedApplication()
         let urlString = OTMClient.sharedInstance().locations[indexPath.row].mediaURL
         if let url = NSURL(string: urlString) {
-            let canOpen = UIApplication.sharedApplication().canOpenURL(url)
-            app.openURL(url)
-            print(url)
-        } // TODO: Create alert
+            if app.canOpenURL(url) {
+                app.openURL(url)
+                print(url)
+            } else {
+                let ac = UIAlertController(title: "Invalid Link", message: nil, preferredStyle: .Alert)
+                ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                self.presentViewController(ac, animated: true, completion: nil)
+            }
+        }
         
     }
     
