@@ -51,70 +51,79 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
         
         switch button.titleLabel!.text! {
             case "Find on the map":
-                if middleTextField.text == "" || middleTextField.text == defaultMiddleTextFieldText {
-                    let ac = UIAlertController(title: "", message: "Must enter a location", preferredStyle: .Alert)
-                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
-                    presentViewController(ac, animated: true, completion: nil)
-                    
-                } else {
-                    searchString = middleTextField.text
-                    OTMClient.sharedInstance().getUserLocation(searchString!) { (success, error) in
-                        dispatch_async(dispatch_get_main_queue(), {
-                            if error != nil  {
-                                let ac = UIAlertController(title: "", message: "Unable to find location", preferredStyle: .Alert)
-                                ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
-                                self.presentViewController(ac, animated: true, completion: nil)
-                            } else {
-                                self.configureUIForState(.Searching)
-                                self.showUserLocation()
-                            }
-                        })
-                    }
-            }
+                findLocation()
+
             case "Submit":
-                if topTextField.text == "" || topTextField.text == shareLinkText {
-                    let ac = UIAlertController(title: "", message: "Must enter a link", preferredStyle: .Alert)
-                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
-                    presentViewController(ac, animated: true, completion: nil)
-
-                } else {
-                    let mediaURL = topTextField.text
-                    // Has the user already pinned a location?
-                    if pinned == true {
-                        OTMClient.sharedInstance().updateStudentLocation(mediaURL!) { (success, error) in
-                            dispatch_async(dispatch_get_main_queue(), {
-                                if error != nil  {
-                                    let ac = UIAlertController(title: "", message: "Unable to update location", preferredStyle: .Alert)
-                                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
-                                    self.presentViewController(ac, animated: true, completion: nil)
-                                } else {
-                                    print("Update successful")
-                                    let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
-                                    self.presentViewController(rootViewController, animated: true, completion: nil)
-                                    
-                                }
-                            })
-                        }
-                    } else {
-                        OTMClient.sharedInstance().postStudentLocation(mediaURL!) { (success, error) in
-                            dispatch_async(dispatch_get_main_queue(), {
-                                if error != nil  {
-                                    let ac = UIAlertController(title: "", message: "Unable to update location", preferredStyle: .Alert)
-                                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
-                                    self.presentViewController(ac, animated: true, completion: nil)
-
-                                } else {
-                                    let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
-                                    self.presentViewController(rootViewController, animated: true, completion: nil)
-                                    
-                                }
-                            })
-                        }
-                    }
-
-                }
+                submitInformation()
             
             default: ()
+        }
+    }
+    
+    func findLocation() {
+        if middleTextField.text == "" || middleTextField.text == defaultMiddleTextFieldText {
+            let ac = UIAlertController(title: "", message: "Must enter a location", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            
+        } else {
+            searchString = middleTextField.text
+            OTMClient.sharedInstance().getUserLocation(searchString!) { (success, error) in
+                dispatch_async(dispatch_get_main_queue(), {
+                    if error != nil  {
+                        let ac = UIAlertController(title: "", message: "Unable to find location", preferredStyle: .Alert)
+                        ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                        self.presentViewController(ac, animated: true, completion: nil)
+                    } else {
+                        self.configureUIForState(.Searching)
+                        self.showUserLocation()
+                    }
+                })
+            }
+        }
+    }
+    
+    func submitInformation() {
+        if topTextField.text == "" || topTextField.text == shareLinkText {
+            let ac = UIAlertController(title: "", message: "Must enter a link", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            
+        } else {
+            let mediaURL = topTextField.text
+            // Has the user already pinned a location?
+            if pinned == true {
+                OTMClient.sharedInstance().updateStudentLocation(mediaURL!) { (success, error) in
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if error != nil  {
+                            let ac = UIAlertController(title: "", message: "Unable to update location", preferredStyle: .Alert)
+                            ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                            self.presentViewController(ac, animated: true, completion: nil)
+                        } else {
+                            print("Update successful")
+                            let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
+                            self.presentViewController(rootViewController, animated: true, completion: nil)
+                            
+                        }
+                    })
+                }
+            } else {
+                OTMClient.sharedInstance().postStudentLocation(mediaURL!) { (success, error) in
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if error != nil  {
+                            let ac = UIAlertController(title: "", message: "Unable to update location", preferredStyle: .Alert)
+                            ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                            self.presentViewController(ac, animated: true, completion: nil)
+                            
+                        } else {
+                            let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
+                            self.presentViewController(rootViewController, animated: true, completion: nil)
+                            
+                        }
+                    })
+                }
+            }
+            
         }
     }
     
