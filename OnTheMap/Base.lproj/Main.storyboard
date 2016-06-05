@@ -43,8 +43,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idr-Y3-95A">
-                                <rect key="frame" x="20" y="412" width="560" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idr-Y3-95A">
+                                <rect key="frame" x="20" y="423" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gHd-Jw-0er"/>
                                 </constraints>
@@ -62,8 +62,9 @@
                                     <constraint firstAttribute="width" constant="116" id="w1R-GF-FJN"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jm7-tu-iiY">
-                                <rect key="frame" x="20" y="476" width="560" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jm7-tu-iiY">
+                                <rect key="frame" x="20" y="487" width="560" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Don't have an account? Sign Up">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -81,10 +82,13 @@
                             <constraint firstItem="NEG-ug-psW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bed-mG-vta"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="leading" secondItem="Tb1-2a-k8v" secondAttribute="leading" id="fdK-zu-cqz"/>
                             <constraint firstItem="NEG-ug-psW" firstAttribute="leading" secondItem="Tb1-2a-k8v" secondAttribute="leading" id="gEE-6Y-suC"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="jm7-tu-iiY" secondAttribute="leading" id="miB-wq-Cxj"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="trailing" secondItem="idr-Y3-95A" secondAttribute="trailing" id="pYT-0b-BD7"/>
+                            <constraint firstItem="jm7-tu-iiY" firstAttribute="top" secondItem="idr-Y3-95A" secondAttribute="bottom" constant="14" id="tsj-1Z-e3z"/>
                             <constraint firstItem="NEG-ug-psW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uRP-b2-bVB"/>
                             <constraint firstItem="Tb1-2a-k8v" firstAttribute="trailing" secondItem="NEG-ug-psW" secondAttribute="trailing" id="urP-07-zrp"/>
                             <constraint firstItem="sHr-ur-aDs" firstAttribute="top" secondItem="Tb1-2a-k8v" secondAttribute="bottom" constant="8" symbolic="YES" id="waE-A4-cXF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jm7-tu-iiY" secondAttribute="trailing" id="y5c-x0-oqP"/>
                             <constraint firstItem="L7H-2C-oM6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="57" id="ya3-0w-dBi"/>
                         </constraints>
                     </view>
