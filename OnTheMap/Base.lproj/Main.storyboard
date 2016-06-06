@@ -115,7 +115,7 @@
         <!--On The Map-->
         <scene sceneID="br7-BL-lbt">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="tho-xh-KTU" customClass="OTMTableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudentInfoTableView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tho-xh-KTU" customClass="OTMTableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OcZ-kZ-IL5"/>
                         <viewControllerLayoutGuide type="bottom" id="xZY-rj-fJG"/>

@@ -56,6 +56,7 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
                 if success {
                     let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
                     destinationVC.pinned = false
+                    destinationVC.returnToMapView = false
                     self.presentViewController(destinationVC, animated: true, completion: nil)
                     
                 } else {
@@ -64,6 +65,7 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
                         ac.addAction(UIAlertAction(title: "Overwrite", style: .Default, handler: { (action: UIAlertAction!) in
                             let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
                             destinationVC.pinned = true
+                            destinationVC.returnToMapView = false
                             self.presentViewController(destinationVC, animated: true, completion: nil)
                             
                         }))

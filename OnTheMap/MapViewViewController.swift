@@ -88,6 +88,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
                 if success { // User has not already pinned a location
                     let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
                     destinationVC.pinned = false
+                    destinationVC.returnToMapView = true
                     self.presentViewController(destinationVC, animated: true, completion: nil)
 
                 } else {
@@ -96,6 +97,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
                         ac.addAction(UIAlertAction(title: "Overwrite", style: .Default, handler: { (action: UIAlertAction!) in
                             let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
                             destinationVC.pinned = true
+                            destinationVC.returnToMapView = true
                             self.presentViewController(destinationVC, animated: true, completion: nil)
 
                         }))

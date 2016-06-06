@@ -27,6 +27,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     let shareLinkText = "Enter a Link to Share Here."
     var searchString: String?
     var pinned: Bool?
+    var returnToMapView: Bool?
     
     enum UIState: String {
         case Initial, Searching
@@ -175,8 +176,17 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     }
 
     @IBAction func cancel(sender: UIButton) {
-        let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
-        self.presentViewController(rootViewController, animated: true, completion: nil)
+        
+        // Return to the same tab
+        
+        if returnToMapView == true {
+            let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
+            self.presentViewController(rootViewController, animated: true, completion: nil)
+        } else {
+            let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
+            rootViewController.selectedViewController = rootViewController.viewControllers![1]
+            self.presentViewController(rootViewController, animated: true, completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
