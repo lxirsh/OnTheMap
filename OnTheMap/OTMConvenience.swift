@@ -26,7 +26,7 @@ extension OTMClient {
                 completionHandlerForGetStudentLocations(success: false, errorString: error.localizedDescription)
             } else {
                 if let results = results[OTMClient.JSONResponseKeys.studentList] as? [[String: AnyObject]] {
-                    OTMClient.sharedInstance().locations = StudentInformation.studentInformationFromResults(results)
+                    StudentData.sharedInstance().locations = StudentInformation.studentInformationFromResults(results)
                     completionHandlerForGetStudentLocations(success: true, errorString: nil)
                 } else {
                     completionHandlerForGetStudentLocations(success: false, errorString: "Could not parse data")

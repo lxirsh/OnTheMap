@@ -34,14 +34,14 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return OTMClient.sharedInstance().locations.count
+        return StudentData.sharedInstance().locations.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "StudentInfoCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! StudentInfoTableViewCell
         
-        let studentInfo = OTMClient.sharedInstance().locations[indexPath.row]
+        let studentInfo = StudentData.sharedInstance().locations[indexPath.row]
         
         cell.studentName.text = studentInfo.firstName + " " + studentInfo.lastName
         cell.studentUrl.text = studentInfo.mediaURL
@@ -104,7 +104,7 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let app = UIApplication.sharedApplication()
-        let urlString = OTMClient.sharedInstance().locations[indexPath.row].mediaURL
+        let urlString = StudentData.sharedInstance().locations[indexPath.row].mediaURL
         if let url = NSURL(string: urlString) {
             if app.canOpenURL(url) {
                 app.openURL(url)

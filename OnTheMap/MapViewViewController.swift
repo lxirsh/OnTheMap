@@ -63,7 +63,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
     func loadDataToMap() {
         var annotations = [MKPointAnnotation]()
         
-        for studentInfo in OTMClient.sharedInstance().locations {
+        for studentInfo in StudentData.sharedInstance().locations {
             let lat = CLLocationDegrees(studentInfo.latitude)
             let long = CLLocationDegrees(studentInfo.longitude)
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)

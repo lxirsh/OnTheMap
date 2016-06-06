@@ -11,9 +11,7 @@ import Foundation
 class OTMClient: NSObject {
     
     // Properties
-    
-    var locations: [StudentInformation] = [StudentInformation]()
-    
+        
     var mapString: String? = nil
     var mediaURL: String? = nil
     var latitude: Double? = nil

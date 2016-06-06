@@ -21,6 +21,7 @@
 		B4814A1F1C98922800B8E978 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4814A1E1C98922800B8E978 /* UdacityConstants.swift */; };
 		B4814A211C98926800B8E978 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4814A201C98926800B8E978 /* UdacityClient.swift */; };
 		B4814A231C991B3D00B8E978 /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4814A221C991B3B00B8E978 /* UdacityConvenience.swift */; };
+		B4A4EDCB1D05F9D400934C27 /* StudentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4EDCA1D05F9D400934C27 /* StudentData.swift */; };
 		B4B6087E1CA440D500218D36 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B6087D1CA440D500218D36 /* MapViewViewController.swift */; };
 		B4B608811CA4563200218D36 /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B608801CA4563200218D36 /* OTMClient.swift */; };
 		B4B608831CA4577B00218D36 /* OTMConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B608821CA4577B00218D36 /* OTMConvenience.swift */; };
@@ -48,6 +49,7 @@
 		B4814A1E1C98922800B8E978 /* UdacityConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
 		B4814A201C98926800B8E978 /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		B4814A221C991B3B00B8E978 /* UdacityConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
+		B4A4EDCA1D05F9D400934C27 /* StudentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentData.swift; sourceTree = "<group>"; };
 		B4B6087D1CA440D500218D36 /* MapViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
 		B4B608801CA4563200218D36 /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
 		B4B608821CA4577B00218D36 /* OTMConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConvenience.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				B4B608821CA4577B00218D36 /* OTMConvenience.swift */,
 				B46D25841CA6746900EE1045 /* OTMConstants.swift */,
 				B46D25861CA7E67C00EE1045 /* StudentInformation.swift */,
+				B4A4EDCA1D05F9D400934C27 /* StudentData.swift */,
 			);
 			name = OTM;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				B43210DC1CAC054F00636001 /* StudentInfoTableViewCell.swift in Sources */,
 				B4814A0D1C9868E200B8E978 /* LoginViewController.swift in Sources */,
 				B4814A0B1C9868E200B8E978 /* AppDelegate.swift in Sources */,
+				B4A4EDCB1D05F9D400934C27 /* StudentData.swift in Sources */,
 				B46D25871CA7E67C00EE1045 /* StudentInformation.swift in Sources */,
 				B46D25851CA6746A00EE1045 /* OTMConstants.swift in Sources */,
 			);
