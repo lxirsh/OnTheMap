@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let facebookLoginButton: FBSDKLoginButton = {
         let button = FBSDKLoginButton()
@@ -22,6 +23,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.hidesWhenStopped = true
+        
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -57,14 +61,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     }
     
     func loginToUdacity() {
+        
+        activityIndicator.startAnimating()
+        
         UdacityClient.sharedInstance().getSessionID(loginID: self.usernameTextField.text!, userPassword: self.passwordTextField.text!) { (success, error) in
             dispatch_async(dispatch_get_main_queue(), {
+                
+                self.activityIndicator.stopAnimating()
+
                 if success {
+                    
                     self.performSegueWithIdentifier("OnTheMap", sender: nil)
                 } else {
-//                    if let error = error {
-//                        print(error)
-//                    }
+                    
                     let ac = UIAlertController(title: "Login failed", message: error, preferredStyle: .Alert)
                     ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                     self.presentViewController(ac, animated: true, completion: nil)
@@ -75,8 +84,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     }
     
     func loginViaFacebook() {
+        
+        activityIndicator.startAnimating()
+        
         UdacityClient.sharedInstance().getSessionIDviaFacebookLogin() { (success, errorString) in
             dispatch_async(dispatch_get_main_queue(), {
+                self.activityIndicator.stopAnimating()
                 if success {
                     self.performSegueWithIdentifier("OnTheMap", sender: nil)
                 } else {
