@@ -41,7 +41,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         if let token = FBSDKAccessToken.currentAccessToken() {
             UdacityClient.sharedInstance().facebookAccessToken = token
 
-            print("Facebook access token: \(UdacityClient.sharedInstance().facebookAccessToken)")
             loginViaFacebook()
         }
 
@@ -61,12 +60,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         UdacityClient.sharedInstance().getSessionID(loginID: self.usernameTextField.text!, userPassword: self.passwordTextField.text!) { (success, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
-                    print("success")
                     self.performSegueWithIdentifier("OnTheMap", sender: nil)
                 } else {
-                    if let error = error {
-                        print(error)
-                    }
+//                    if let error = error {
+//                        print(error)
+//                    }
                     let ac = UIAlertController(title: "Login failed", message: error, preferredStyle: .Alert)
                     ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                     self.presentViewController(ac, animated: true, completion: nil)
@@ -80,12 +78,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         UdacityClient.sharedInstance().getSessionIDviaFacebookLogin() { (success, errorString) in
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
-                    print("success")
                     self.performSegueWithIdentifier("OnTheMap", sender: nil)
                 } else {
-                    if let errorString = errorString {
-                        print(errorString)
-                    }
                     let ac = UIAlertController(title: "Login failed", message: errorString, preferredStyle: .Alert)
                     ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                     self.presentViewController(ac, animated: true, completion: nil)
@@ -104,10 +98,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     
     // MARK: Delegate for Facebook login
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        print("completed fb login")
         if let token = FBSDKAccessToken.currentAccessToken() {
             UdacityClient.sharedInstance().facebookAccessToken = token
-            print("Facebook access token: \(UdacityClient.sharedInstance().facebookAccessToken)")
             loginViaFacebook()
         }
     }

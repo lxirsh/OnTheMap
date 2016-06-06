@@ -39,7 +39,6 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
         self.middleTextField.text = defaultMiddleTextFieldText
         
         configureUIForState(.Initial)
-        print("Pinned: \(self.pinned!)")
        
     }
     
@@ -100,7 +99,6 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
                             ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                             self.presentViewController(ac, animated: true, completion: nil)
                         } else {
-                            print("Update successful")
                             let rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
                             self.presentViewController(rootViewController, animated: true, completion: nil)
                             
@@ -143,7 +141,6 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
         switch state {
             
         case .Initial:
-            print("Initial")
             middleView.alpha = 1
             bottomView.alpha = 1
             mapView.alpha = 0

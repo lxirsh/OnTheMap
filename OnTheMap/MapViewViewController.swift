@@ -30,12 +30,11 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
                     UdacityClient.sharedInstance().firstName = "First"
                     UdacityClient.sharedInstance().lastName = "Last"
                 } else {
-                    print("Public data fetched for map view")
+                    self.retrieveStudentData()
                 }
             })
         }
         
-        retrieveStudentData()
         
      }
     
@@ -47,7 +46,6 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
                     self.loadDataToMap()
                 } else {
                     if let error = error {
-                        print(error)
                         let ac = UIAlertController(title: "Could not load student data", message: "Please refresh to try again", preferredStyle: .Alert)
                         ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                         self.presentViewController(ac, animated: true, completion: nil)
@@ -90,7 +88,6 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
                 if success { // User has not already pinned a location
                     let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
                     destinationVC.pinned = false
-                    print("User not pinned")
                     self.presentViewController(destinationVC, animated: true, completion: nil)
 
                 } else {
@@ -107,7 +104,6 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
                             return
                         }))
                         self.presentViewController(ac, animated: true, completion: nil)
-                        print("User pinned")
                     } else {
                         let ac = UIAlertController(title: "Unkown error", message: "Please try again", preferredStyle: .Alert)
                         ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
@@ -169,7 +165,6 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
             if let url = NSURL(string:(view.annotation?.subtitle!)!) {
                 if app.canOpenURL(url) {
                     app.openURL(url)
-                    print(url)
                 } else {
                     let ac = UIAlertController(title: "Invalid Link", message: nil, preferredStyle: .Alert)
                     ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))

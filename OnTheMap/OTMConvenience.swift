@@ -23,9 +23,8 @@ extension OTMClient {
         taskForGETMethod(OTMClient.Methods.StudentLocations, parameters: parameters) { (results, error) in
             
             if let error = error {
-                // TODO: user alert
-                print(error.localizedDescription)
-            } else {                
+                completionHandlerForGetStudentLocations(success: false, errorString: error.localizedDescription)
+            } else {
                 if let results = results[OTMClient.JSONResponseKeys.studentList] as? [[String: AnyObject]] {
                     OTMClient.sharedInstance().locations = StudentInformation.studentInformationFromResults(results)
                     completionHandlerForGetStudentLocations(success: true, errorString: nil)
@@ -48,13 +47,11 @@ extension OTMClient {
         taskForGETMethod(OTMClient.Methods.StudentLocations, parameters: parameters) { (results, error) in
             
             if let error = error {
-                // TODO: user alert
+                completionHandlerForQueryStudentLocation(success: false, errorString: nil)
                 print(error.localizedDescription)
             } else {
-                print("JSON: \(results)")
                 if let results = results as? [String: AnyObject] {
-                    if let resultsArray = results[OTMClient.JSONResponseKeys.studentList] { //as? [AnyObject] {
-                        print(resultsArray.count)
+                    if let resultsArray = results[OTMClient.JSONResponseKeys.studentList] {
                         if resultsArray.count > 0 {
                             if let dict = resultsArray[0] {
                                 guard let ID = dict["objectId"] as? String else {
@@ -70,7 +67,6 @@ extension OTMClient {
                     }
                     
                 } else {
-                    print(results)
                     completionHandlerForQueryStudentLocation(success: false, errorString: "Could not parse results")
                 }
                 
@@ -98,8 +94,6 @@ extension OTMClient {
                 self.latitude = location?.coordinate.latitude
                 self.longitude = location?.coordinate.longitude
                 self.mapString = addressString
-                print("latitude: \(self.latitude)")
-                print("longitude: \(self.longitude)")
                 
                 completionHandlerForGetUserLocation(success: true, errorString: nil)
             }
@@ -114,11 +108,9 @@ extension OTMClient {
         
         taskForPOSTMethod(OTMClient.Methods.StudentLocations, parameters: parameters, jsonBody: jsonBody) { (results, error) in
             
-            if let error = error {
-                print("\(error.localizedDescription)")
+            if error != nil {
                 completionHandlerForPostStudentLocation(success: false, errorString: "Could not add location")
             } else {
-                print(results)
                 completionHandlerForPostStudentLocation(success: true, errorString: nil)
             }
             
@@ -132,17 +124,14 @@ extension OTMClient {
         let parameters = [String: AnyObject]()
         var mutableMethod: String = Methods.UpdateLocation
         mutableMethod = substituteKeyInMethod(mutableMethod, key: URLKeys.ObjectId, value: objectId!)!
-        print("uniqueKey: \(UdacityClient.sharedInstance().userID!)")
         
         let jsonBody = "{\"\(OTMClient.JSONBodyKeys.UniqueKey)\": \"\(UdacityClient.sharedInstance().userID!)\", \"\(OTMClient.JSONBodyKeys.FirstName)\": \"\(UdacityClient.sharedInstance().firstName!)\", \"\(OTMClient.JSONBodyKeys.LastName)\": \"\(UdacityClient.sharedInstance().lastName!)\",\"\(OTMClient.JSONBodyKeys.MapString)\": \"\(self.mapString!)\", \"\(OTMClient.JSONBodyKeys.MediaURL)\": \"\(mediaURL)\",\"\(OTMClient.JSONBodyKeys.Latitude)\": \(self.latitude!), \"\(OTMClient.JSONBodyKeys.Longitude)\": \(self.longitude!)}"
         
         taskForPUTMethod(mutableMethod, parameters: parameters, jsonBody: jsonBody) { (results, error) in
             
-            if let error = error {
-                print("\(error.localizedDescription)")
+            if error != nil {
                 completionHandlerForUpdatetStudentLocation(success: false, errorString: "Could not update new location")
             } else {
-                print(results)
                 completionHandlerForUpdatetStudentLocation(success: true, errorString: nil)
             }
             

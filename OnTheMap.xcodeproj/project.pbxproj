@@ -101,9 +101,9 @@
 		B4814A091C9868E200B8E978 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				B40C8DDA1D02DCC40010708A /* View */,
 				B4F6CCC91D00649000FB3A83 /* Frameworks */,
 				B4814A1C1C98917F00B8E978 /* Model */,
+				B40C8DDA1D02DCC40010708A /* View */,
 				B4814A1D1C98919100B8E978 /* Controller */,
 				B4814A0A1C9868E200B8E978 /* AppDelegate.swift */,
 				B4814A0E1C9868E200B8E978 /* Main.storyboard */,

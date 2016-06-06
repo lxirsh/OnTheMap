@@ -22,8 +22,7 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
                 if success {
                     self.tableView.reloadData()
                 } else {
-                    if let error = error {
-                        print(error)
+                    if error != nil {
                         let ac = UIAlertController(title: "Could not load student data", message: "Please refresh to try again", preferredStyle: .Alert)
                         ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                         self.presentViewController(ac, animated: true, completion: nil)
@@ -57,7 +56,6 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
                 if success {
                     let destinationVC = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingViewController") as! InformationPostingViewController
                     destinationVC.pinned = false
-                    print("User not pinned")
                     self.presentViewController(destinationVC, animated: true, completion: nil)
                     
                 } else {
@@ -74,10 +72,10 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
                             return
                         }))
                         self.presentViewController(ac, animated: true, completion: nil)
-                        print("User pinned")
                     } else {
-                        // TODO: Add alert
-                        print("error")
+                        let ac = UIAlertController(title: "An unknown error has occurred", message: "Please try again", preferredStyle: .Alert)
+                        ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                        self.presentViewController(ac, animated: true, completion: nil)
                     }
                 }
             })
@@ -93,8 +91,9 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
                     self.presentViewController(vc, animated: true, completion: nil)
                     
                 } else {
-                    // Add an alert?
-                    print(error)
+                    let ac = UIAlertController(title: "An unknown error has occurred", message: "Please try again", preferredStyle: .Alert)
+                    ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+                    self.presentViewController(ac, animated: true, completion: nil)
                 }
             })
         }
@@ -109,7 +108,6 @@ class OTMTableViewController: UIViewController, UITableViewDelegate {
         if let url = NSURL(string: urlString) {
             if app.canOpenURL(url) {
                 app.openURL(url)
-                print(url)
             } else {
                 let ac = UIAlertController(title: "Invalid Link", message: nil, preferredStyle: .Alert)
                 ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))

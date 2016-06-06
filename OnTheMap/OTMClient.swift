@@ -38,7 +38,6 @@ class OTMClient: NSObject {
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
             func sendError(error: String) {
-                print(error)
                 let userInfo = [NSLocalizedDescriptionKey: error]
                 completionHandlerForGet(result: nil, error: NSError(domain: "taskForGetMethod", code: 1, userInfo: userInfo))
             }
@@ -89,7 +88,6 @@ class OTMClient: NSObject {
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
             func sendError(error: String) {
-                print("\(error)\n")
                 let userInfo = [NSLocalizedDescriptionKey: error]
                 completionHandlerForPOST(result: nil, error: NSError(domain: "taskForPOSTMethod", code: 1, userInfo: userInfo))
                 
@@ -138,7 +136,6 @@ class OTMClient: NSObject {
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
             func sendError(error: String) {
-                print("\(error)\n")
                 let userInfo = [NSLocalizedDescriptionKey: error]
                 completionHandlerForPUT(result: nil, error: NSError(domain: "taskForPOSTMethod", code: 1, userInfo: userInfo))
                 
@@ -211,7 +208,6 @@ class OTMClient: NSObject {
             let queryItem = NSURLQueryItem(name: key, value: "\(value)")
             components.queryItems!.append(queryItem)
         }
-        print(components.URL!)
         return components.URL!
     }
     
