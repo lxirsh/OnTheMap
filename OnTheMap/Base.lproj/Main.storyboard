@@ -272,12 +272,17 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jAb-lD-Vx3">
+                                        <rect key="frame" x="282" y="116" width="37" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.30980392156862746" green="0.58039215686274503" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="82Y-Zv-PfG" firstAttribute="leading" secondItem="dXP-RP-nLY" secondAttribute="leadingMargin" id="WfB-sh-qrP"/>
                                     <constraint firstAttribute="trailing" secondItem="82Y-Zv-PfG" secondAttribute="trailing" constant="8" id="XJQ-Id-3MY"/>
                                     <constraint firstItem="82Y-Zv-PfG" firstAttribute="top" secondItem="dXP-RP-nLY" secondAttribute="top" constant="18" id="cSb-ib-xRC"/>
+                                    <constraint firstItem="jAb-lD-Vx3" firstAttribute="centerY" secondItem="dXP-RP-nLY" secondAttribute="centerY" id="pYn-e8-Xcw"/>
+                                    <constraint firstItem="jAb-lD-Vx3" firstAttribute="centerX" secondItem="82Y-Zv-PfG" secondAttribute="centerX" id="xGB-1A-IVv"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agx-Rv-ZVR">
@@ -330,6 +335,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="QNn-VC-4NJ"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="jAb-lD-Vx3" id="qau-yF-jkY"/>
                         <outlet property="bottomView" destination="afR-k2-GnV" id="EmB-gH-NPj"/>
                         <outlet property="button" destination="BM2-gM-591" id="FeC-1G-Ykj"/>
                         <outlet property="cancelButton" destination="Agx-Rv-ZVR" id="jYG-Rt-uJk"/>

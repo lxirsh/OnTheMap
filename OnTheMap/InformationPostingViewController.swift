@@ -19,6 +19,7 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     
     
@@ -34,9 +35,12 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.hidesWhenStopped = true
+
         self.topTextField.delegate = self
         self.middleTextField.delegate = self
         self.middleTextField.text = defaultMiddleTextFieldText
+        
         
         configureUIForState(.Initial)
        
@@ -67,8 +71,11 @@ class InformationPostingViewController: UIViewController, MKMapViewDelegate, UIT
             
         } else {
             searchString = middleTextField.text
+            activityIndicator.startAnimating()
+            
             OTMClient.sharedInstance().getUserLocation(searchString!) { (success, error) in
                 dispatch_async(dispatch_get_main_queue(), {
+                    self.activityIndicator.stopAnimating()
                     if error != nil  {
                         let ac = UIAlertController(title: "", message: "Unable to find location", preferredStyle: .Alert)
                         ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
